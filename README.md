@@ -4,7 +4,11 @@
 *Repositorio del Proyecto **"A.E. Store"**, para el curso de ***React***, Comisión **38.090** de **Coder House**.*
 
 ## Historial de Modificaciones:
-
+### `04/09/2022`
+- Creación del archivo *CartWidget.js*, dentro del directorio *src/components/NavBar*.
+  - Importación del *componente* dentro en *NavBar.js*.
+- Creación del archivo *ItemListContainer.js*, dentro del directorio *src/components*.
+  - Importación del *componente* dentro de *App.js*, pasandole la *propiedad* **greeting**.
 #### `02/09/2022`
 - Creación del archivo ***NavBar.js***, dentro de la carpeta ***/src/components***
     - Se creó una barra de navegación simple, implementando la librería **[Material UI](https://mui.com/)**, personalizando el contenido.
@@ -17,6 +21,9 @@
 
 En el directorio raíz del proyecto ejecutar:
 
+### `npm install`
+
+Para instalar los módulos necesarios para correr la aplicación en modo desarrollo.
 ### `npm start`
 
 Para correr la aplicacion en modo desarrollo.\

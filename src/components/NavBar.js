@@ -4,16 +4,19 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Tooltip from '@mui/material/Tooltip';
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
+import CartWidget from "./NavBar/CartWidget.js";
 
-const pages = ["Libros de Texto", "Infantiles", "Novelas"];
+const categorias = [
+  {id: 1, nombre: "Libros de Texto"},
+  {id: 2, nombre: "Infantiles"},
+  {id: 3, nombre: "Novelas"},
+];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -40,6 +43,7 @@ const NavBar = () => {
             >
               <MenuIcon />
             </IconButton>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -58,14 +62,16 @@ const NavBar = () => {
                 display: {xs: "block", md: "none"},
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {categorias.map((categoria) => (
+                <MenuItem key={categoria.id} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{categoria.nombre}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
+
           <img src={logo} alt="Logo" style={{width: 50, margin: 5}} />
+
           <Typography
             variant="h4"
             noWrap
@@ -102,6 +108,7 @@ const NavBar = () => {
           >
             AE Store
           </Typography>
+
           <Box
             sx={{
               flexGrow: 1,
@@ -109,9 +116,9 @@ const NavBar = () => {
               justifyContent: "center",
             }}
           >
-            {pages.map((page) => (
+            {categorias.map((categoria) => (
               <Button
-                key={page}
+                key={categoria.id}
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
@@ -122,15 +129,12 @@ const NavBar = () => {
                   fontSize: "1.2rem",
                 }}
               >
-                {page}
+                {categoria.nombre}
               </Button>
             ))}
           </Box>
-          <Tooltip title="Ver Carrito de Compras">
-          <IconButton color="inherit">
-            <ShoppingCartTwoToneIcon fontSize="large"/>
-          </IconButton>
-          </Tooltip>
+
+          <CartWidget />
         </Toolbar>
       </Container>
     </AppBar>
