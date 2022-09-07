@@ -10,7 +10,8 @@ const ItemListContainer = ({greeting}) => {
 
 const styles = {
   alin: {
-    textAlign: "center",
+    margin:20,
+    textAlign: "center"
   },
   titulo: {
     fontFamily: "Fredoka One",

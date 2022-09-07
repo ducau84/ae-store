@@ -11,7 +11,7 @@
   - Importación del *componente* dentro de *App.js*, pasandole la *propiedad* **greeting**.
 #### `02/09/2022`
 - Creación del archivo ***NavBar.js***, dentro de la carpeta ***/src/components***
-    - Se creó una barra de navegación simple, implementando la librería **[Material UI](https://mui.com/)**, personalizando el contenido.
+    - Se creó una barra de navegación simple, ~~implementando la librería **[Material UI](https://mui.com/)**, personalizando el contenido~~.
     - Se creó el archivo **logo.png** dentro del directorio ***/src/assets***
 #### `25/08/2022`
 - Creación del repositorio;
