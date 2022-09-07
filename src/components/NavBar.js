@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.png";
-import CartWidget from "./CartWidget.js";
+import CartWidget from "./CartWidget"
 import "./NavBar.css"
 
 const NavBar = ({categories}) => {
@@ -35,10 +35,5 @@ const NavBar = ({categories}) => {
     </>
   );
 };
-
-
-
-
-
 
 export default NavBar;
