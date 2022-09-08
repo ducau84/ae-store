@@ -7,13 +7,13 @@ const ItemListContainer = ({greeting}) => {
 
   const onAdd = (cantidad) => {
     if(stock!==0){
-    toast.success(`¡Agregaste ${cantidad} ítem al carrito!`)
-      stock = stock-cantidad
+    toast.success(`¡Agregaste ${cantidad} ítem/s al carrito!`)
+     setStock(stock-cantidad);
   }else{toast.error("No hay mas ítems disponibles")};
   };
 
   let initial = 1
-  let [stock] = useState(5);
+  let [stock, setStock] = useState(5);
   
   return (
     <>
