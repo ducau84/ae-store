@@ -4,8 +4,14 @@
 *Repositorio del Proyecto **"A.E. Store"**, para el curso de ***React***, Comisión **38.090** de **Coder House**.*
 
 ## Historial de Modificaciones:
+
+### `07/09/2022`
+- Creación del archivo *ItemCount.js*, dentro del directorio *src/components*.
+  - Importación del *componente* dentro de *ItemListContainer.js*, pasandole las *propiedades* **stock**, **init** y la *función* **onAdd**.
+  - Creación de los archivos *ItemCount.css* y *NavBar.css* dentro del durectorio *src/components*. 
+
 ### `04/09/2022`
-- Creación del archivo *CartWidget.js*, dentro del directorio *src/components/NavBar*.
+- Creación del archivo *CartWidget.js*, dentro del directorio *src/components*.
   - Importación del *componente* dentro en *NavBar.js*.
 - Creación del archivo *ItemListContainer.js*, dentro del directorio *src/components*.
   - Importación del *componente* dentro de *App.js*, pasandole la *propiedad* **greeting**.
