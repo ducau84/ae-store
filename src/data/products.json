@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "title": "Más Respeto Que soy tu Madre",
+        "autor": "Hernan Casciari",
+        "genre": "Narrativas",
+        "img": "../images/res.png",
+        "price": 3000,
+        "stock": 10
+    },
+    {
+        "id": 2,
+        "title": "Messi es un Perro y otros Cuentos",
+        "autor": "Hernan Casciari",
+        "genre": "Narrativas",
+        "img": "../images/mes.png",
+        "price": 3000,
+        "stock": 8
+    },
+    {
+        "id": 3,
+        "title": "El Nuevo Paraiso de los Tontos",
+        "autor": "Hernan Casciari",
+        "genre": "Narrativas",
+        "img": "../images/par.png",
+        "price": 3000,
+        "stock": 6
+    },
+    {
+        "id": 4,
+        "title": "Los Consejos de Mi Abuelo Facho",
+        "autor": "Hernan Casciari",
+        "genre": "Narrativas",
+        "img": "../images/abu.png",
+        "price": 3000,
+        "stock": 9
+    },
+    {
+        "id": 5,
+        "title": "España, decí alpiste... Fuimos, Mentimos, Vencimos.",
+        "autor": "Hernan Casciari",
+        "genre": "Narrativas",
+        "img": "../images/esp.png",
+        "price": 3000,
+        "stock": 6
+    },
+    {
+        "id": 6,
+        "title": "El Mejor Infarto de mi Vida. ",
+        "autor": "Hernan Casciari",
+        "genre": "Narrativas",
+        "img": "../images/inf.png",
+        "price": 3000,
+        "stock": 11
+    }
+]

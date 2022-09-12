@@ -5,6 +5,11 @@
 
 ## Historial de Modificaciones:
 
+###`12/09/2022`
+- Dentro del componente *ItemListContainer.js* , mediante el uso de *useEffect* se cita  una función *getData* (creada en *src/utils/getData.js*) para importar los productos del archivo *mockupProducts.json*, ubicado temporalmente en el directorio: */src/data/products.json*, con un delay seteado en 2.000 ms. que muestra un spinner importado desde la librería **[React Spinners](https://mhnpd.github.io/react-loader-spinner/)**, mientras se cargan los datos.
+- Creación de los archivos *Item.js* e *ItemList.js*, dentro del directorio *src/components*.-
+  - En *ItemList.js* se realizó la desestructuración del array importado en *ItemListContainer.js* y generación de la key mediante la fusión de los campos título y id ( Créditos a la tutora Pilar Figueroa por el tip ), para luego ser pasados a *Item.js* como **prop**.
+  - En *Item.js* se estructuró y estilaron los datos de los productos para su correcta renderización en pantalla.
 ### `07/09/2022`
 - Creación del archivo *ItemCount.js*, dentro del directorio *src/components*.
   - Importación del *componente* dentro de *ItemListContainer.js*, pasandole las *propiedades* **stock**, **init** y la *función* **onAdd**.

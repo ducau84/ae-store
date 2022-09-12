@@ -15,7 +15,6 @@ const ItemCount = ({initial, stock, onAdd}) => {
 
   return (
     <div className="container">
-      <h4 className="titulo">"Conejito va a Dormir"</h4>
       <div className="contador">
         <span>Cantidad:</span>
         <button className="btnSR" disabled={contador <= 1} onClick={restar}>

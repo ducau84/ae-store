@@ -5,9 +5,9 @@ import ItemListContainer from "./components/ItemListContainer";
 const saludo = "¡Bienvenido a nuestra tienda!";
 
 const categorias = [
-  {id: 1, nombre: "Libros de Texto"},
+  {id: 1, nombre: "Escolares"},
   {id: 2, nombre: "Infantiles"},
-  {id: 3, nombre: "Novelas"},
+  {id: 3, nombre: "Narrativas"},
 ];
 
 const App = () => {
