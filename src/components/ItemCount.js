@@ -18,13 +18,9 @@ const ItemCount = ( { initial, stock, onAdd } ) => {
     <ShopContainer>
       <Counter>
         <span>Cantidad:</span>
-        <ButtonCounter disabled={contador <= 1} onClick={restar}>
-          -
-        </ButtonCounter>
+        <ButtonCounter disabled={contador <= 1} onClick={restar}> - </ButtonCounter>
         <span>{contador}</span>
-        <ButtonCounter disabled={contador >= stock} onClick={sumar}>
-          +
-        </ButtonCounter>
+        <ButtonCounter disabled={contador >= stock} onClick={sumar}> + </ButtonCounter>
       </Counter>
       <ButtonAddtoCart disabled={contador > stock} onClick={() => onAdd( contador )}>
         <AddShoppingCartTwoToneIcon sx={{ fontSize: 25 }} />
@@ -65,7 +61,7 @@ const ButtonCounter = styled.button`
   color: #ffffff;
   font-weight: 500;
   border: #1e005a 2px solid;
-  :hover{
+  &:hover{
   color: #1e005a;
   background-color: #f3e816;
   transition: 600ms ease;
@@ -83,7 +79,7 @@ const ButtonAddtoCart = styled.button`
   border-radius: 15px;
   background-color: #f3e816;
   border: #1e005a solid 2px;
-  :hover {
+  &:hover {
   color: #ffffff;
   background-color:#1e005a;
   border: #f3e816 solid 2px;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ItemList from "./ItemList.js";
-import getData from "../utils/getData.js";
+import GetData from "../utils/GetData.js";
 import mockupProducts from "../data/products.json";
 import { FallingLines } from "react-loader-spinner";
 import styled from "styled-components";
@@ -22,7 +22,7 @@ const ItemListContainer = ( { greeting } ) => {
   useEffect( () => {
     setLoading( true );
 
-    getData( mockupProducts ).then( ( res, rej ) => {
+    GetData( mockupProducts ).then( ( res, rej ) => {
       setLoading( false );
       setProductList( JSON.parse( res ) );
     } );
@@ -53,7 +53,7 @@ export default ItemListContainer;
 const Greeter = styled.div`
   margin: 20px;
   text-align: center;
-  h1 {
+   h1 {
     font-family: "Fredoka One";
     color: #0d2538;
     text-transform: Uppercase;

@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-
-const Item = ( { product } ) => {
+const Item = ({product}) => {
   return (
     <>
       <BookContainer>
@@ -17,7 +16,6 @@ const Item = ( { product } ) => {
 };
 
 export default Item;
-
 
 const BookContainer = styled.div`
   display: flex;
@@ -59,7 +57,7 @@ const BtnDetails = styled.button`
   border-radius: 15px;
   background-color: #f3e816;
   border: #1e005a solid 2px;
-  :hover {
+  &:hover {
     color: #ffffff;
     background-color: #1e005a;
     border: #f3e816 solid 2px;
