@@ -1,63 +1,84 @@
 import React, {useState, useEffect} from "react";
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//import ItemCount from "./ItemCount.js";
 import ItemList from "./ItemList.js";
-import {getData} from "../utils/getData.js";
+import getData from "../utils/getData.js";
 import mockupProducts from "../data/products.json";
 import {FallingLines} from "react-loader-spinner";
-import "./ItemListContainer.css";
+import styled from "styled-components";
+
 
 const ItemListContainer = ({greeting}) => {
 
-  // const onAdd = (cantidad) => {
-  //   if (stock !== 0) {
-  //     toast.success(`¡Agregaste ${cantidad} ítem/s al carrito!`);
-  //     setStock(stock - cantidad);
-  //   } else {
-  //     toast.error("No hay mas ítems disponibles");
-  //   }
-  // };
-
-  // let initial = 1;
-  // let [stock, setStock] = useState(5);
+  const onAdd = (cantidad) => {
+    toast.success(`¡Agregaste ${cantidad} ítem/s al carrito!`);
+  };
 
   const [showProductList, setProductList] = useState([]);
   const [loadingProducts, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    getData(mockupProducts)
-      .then((res) => {
-        setLoading(false);
-        setProductList(JSON.parse(res));
-      })
-      .catch((rej) => {
-        toast.error("No se pudieron obtener los datos desde el servidor");
-      });
+
+    getData(mockupProducts).then((res, rej) => {
+      setLoading(false);
+      setProductList(JSON.parse(res));
+    });
   }, []);
 
   return (
     <>
-      <section className="titulo">
+      <Greeter>
         <h1>{greeting}</h1>
-      </section>
-      <section className="itemList">
-        {loadingProducts ? (
-          <FallingLines
-            color="#f1c40f"
-            width="500"
-            visible={true}
-            ariaLabel="falling-lines-loading"
-          />
-        ) : (
+      </Greeter>
+      <BooksContainer>
+        {
+          loadingProducts 
+          ? 
+          <FallingLines color="#e6077a" width="450" visible={true} />
+          : 
           <ItemList showProductList={showProductList} />
-        )}
-     {/*    <ItemCount stock={stock} initial={initial} onAdd={onAdd} /> */}
-      </section>
+        }
+      </BooksContainer>
       <ToastContainer />
     </>
   );
 };
 
 export default ItemListContainer;
+
+
+const Greeter = styled.div`
+  margin: 20px;
+  text-align: center;
+  h1 {
+    font-family: "Fredoka One";
+    color: #0d2538;
+    text-transform: Uppercase;
+    font-size: 3rem;
+  }
+`
+
+const BooksContainer = styled.section`
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto;
+  gap: 1rem;
+
+  @media (max-width: 767px) {
+   
+    {
+      grid-template-columns: auto auto;
+    }
+    svg {
+      width: 250px;
+    }
+  }
+
+  @media (max-width: 467px) {
+
+    {
+      grid-template-columns: auto;
+    }
+  }
+`

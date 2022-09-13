@@ -5,6 +5,7 @@
         "autor": "Hernan Casciari",
         "genre": "Narrativas",
         "img": "../images/res.png",
+        "desc": "«Más respeto que soy tu madre» es la primera novela de Hernán Casciari, escrita con los borradores a la vista del lector. Portada en cartoné y solapas, con ilustración de Bernardo Erlich. Tamaño 23x15cm. 288 páginas. ISBN 9788415525066. Editorial Orsai SRL.",
         "price": 3000,
         "stock": 10
     },
@@ -13,6 +14,7 @@
         "title": "Messi es un Perro y otros Cuentos",
         "autor": "Hernan Casciari",
         "genre": "Narrativas",
+        "desc": "«Messi es un perro y otros cuentos» es el cuarto libro de relatos de Hernán Casciari, escrito con los borradores a la vista del lector. Portada en cartoné y solapas, con ilustración de Horacio Petre. Tamaño 23x15cm. 256 páginas. ISBN 9788415525097. Editorial Orsai SRL.",
         "img": "../images/mes.png",
         "price": 3000,
         "stock": 8
@@ -22,6 +24,7 @@
         "title": "El Nuevo Paraiso de los Tontos",
         "autor": "Hernan Casciari",
         "genre": "Narrativas",
+        "desc": "«El nuevo paraíso de los tontos» es el tercer libro de relatos de Hernán Casciari, escrito con los borradores a la vista del lector. Portada en cartoné y solapas, con ilustración de Tute. Tamaño 23x15cm. 256 páginas. ISBN 9788415525080. Editorial Orsai SRL.",
         "img": "../images/par.png",
         "price": 3000,
         "stock": 6
@@ -31,6 +34,7 @@
         "title": "Los Consejos de Mi Abuelo Facho",
         "autor": "Hernan Casciari",
         "genre": "Narrativas",
+        "desc": "«Los consejos de mi abuelo facho» es el octavo libro de relatos de Hernán Casciari, escrito con los borradores a la vista del lector. Portada en cartoné y solapas, con ilustración de Matías Tolsà. Tamaño 23x15cm. 256 páginas. ISBN 978-841552518-9. Editorial Orsai SRL.",
         "img": "../images/abu.png",
         "price": 3000,
         "stock": 9
@@ -40,6 +44,7 @@
         "title": "España, decí alpiste... Fuimos, Mentimos, Vencimos.",
         "autor": "Hernan Casciari",
         "genre": "Narrativas",
+        "desc": "«España, decí alpiste» es el segundo libro de relatos de Hernán Casciari, escrito con los borradores a la vista del lector. Portada en cartoné y solapas, con ilustración de Horacio Petre. Tamaño 23x15cm. 256 páginas. ISBN 9788415525073. Editorial Orsai SRL.",
         "img": "../images/esp.png",
         "price": 3000,
         "stock": 6
@@ -49,6 +54,7 @@
         "title": "El Mejor Infarto de mi Vida. ",
         "autor": "Hernan Casciari",
         "genre": "Narrativas",
+        "desc": "«El mejor infarto de mi vida» es el quinto libro de cuentos de Hernán Casciari, escrito con los borradores a la vista del lector. Portada en cartoné y solapas, con ilustración de Santiago Sequeiros. Tamaño 23x15cm. 256 páginas. ISBN 9788415525134. Editorial Orsai SRL.",
         "img": "../images/inf.png",
         "price": 3000,
         "stock": 11
