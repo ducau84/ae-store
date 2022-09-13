@@ -1,4 +1,4 @@
-const GetData = ( data ) => {
+const getData = ( data ) => {
   return new Promise( ( res ) => {
     setTimeout( () => {
       res( JSON.stringify( data ) );
@@ -6,4 +6,4 @@ const GetData = ( data ) => {
   } );
 };
 
-export default GetData
+export default getData
