@@ -1,30 +1,32 @@
-import React, {useState, useEffect} from "react";
-import {ToastContainer, toast} from "react-toastify";
+import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ItemList from "./ItemList.js";
 import getData from "../utils/getData.js";
 import mockupProducts from "../data/products.json";
-import {FallingLines} from "react-loader-spinner";
+import { FallingLines } from "react-loader-spinner";
 import styled from "styled-components";
 
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = ( { greeting } ) => {
 
-  const onAdd = (cantidad) => {
-    toast.success(`¡Agregaste ${cantidad} ítem/s al carrito!`);
+  // eslint-disable-next-line no-unused-vars
+  const onAdd = ( cantidad ) => {
+    
+    toast.success( `¡Agregaste ${cantidad} ítem/s al carrito!` );
   };
 
-  const [showProductList, setProductList] = useState([]);
-  const [loadingProducts, setLoading] = useState(true);
+  const [ showProductList, setProductList ] = useState( [] );
+  const [ loadingProducts, setLoading ] = useState( true );
 
-  useEffect(() => {
-    setLoading(true);
+  useEffect( () => {
+    setLoading( true );
 
-    getData(mockupProducts).then((res, rej) => {
-      setLoading(false);
-      setProductList(JSON.parse(res));
-    });
-  }, []);
+    getData( mockupProducts ).then( ( res, rej ) => {
+      setLoading( false );
+      setProductList( JSON.parse( res ) );
+    } );
+  }, [] );
 
   return (
     <>
@@ -33,10 +35,10 @@ const ItemListContainer = ({greeting}) => {
       </Greeter>
       <BooksContainer>
         {
-          loadingProducts 
-          ? 
+          loadingProducts
+          ?
           <FallingLines color="#e6077a" width="450" visible={true} />
-          : 
+          :
           <ItemList showProductList={showProductList} />
         }
       </BooksContainer>
