@@ -18,7 +18,6 @@ const Burger = ( { categories } ) => {
     )
 }
 
-export default Burger
 
 const StyledBurger = styled.div`
   width: 2rem;
@@ -52,3 +51,5 @@ const StyledBurger = styled.div`
     }
   }
 `
+
+export default Burger

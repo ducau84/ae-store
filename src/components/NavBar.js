@@ -18,7 +18,6 @@ const Navbar = ( { categories } ) => {
     );
 };
 
-export default Navbar;
 
 const Nav = styled.nav`
   position: sticky;
@@ -58,3 +57,5 @@ const Title = styled.h1`
   font-size: 2rem;
   font-weight: 400;
 `
+
+export default Navbar;

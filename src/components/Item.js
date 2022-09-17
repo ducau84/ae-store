@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-const Item = ({product}) => {
+const Item = ( { product } ) => {
   return (
     <>
       <BookContainer>
         <h3>{product.title}</h3>
         <img src={product.img} alt="book cover" />
-        <h4>Precio: ${product.price}</h4>
+        <h4>Precio: Precio: {new Intl.NumberFormat("es-AR", {style: "currency", currency: "ARS"}).format(product.price)}</h4>
         <h5>Stock: {product.stock} Unidades</h5>
         <BtnDetails>Ver Detalle</BtnDetails>
       </BookContainer>
@@ -15,7 +15,6 @@ const Item = ({product}) => {
   );
 };
 
-export default Item;
 
 const BookContainer = styled.div`
   display: flex;
@@ -23,10 +22,8 @@ const BookContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   font-family: Fredoka One;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
   background-color: #e6def733;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   max-width: 320px;
   padding: 20px;
   border-radius: 15px;
@@ -65,3 +62,5 @@ const BtnDetails = styled.button`
     cursor: pointer;
   }
 `
+
+export default Item

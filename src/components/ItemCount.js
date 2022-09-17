@@ -30,7 +30,6 @@ const ItemCount = ( { initial, stock, onAdd } ) => {
   );
 };
 
-export default ItemCount;
 
 const ShopContainer = styled.div`
   font-family: Fredoka One;
@@ -38,8 +37,10 @@ const ShopContainer = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   background-color: #1e005a33;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   max-width: 320px;
-  padding: 20px;
+  padding: 1.5rem;
+  margin: 1rem;
   border-radius: 15px;
 `
 
@@ -50,6 +51,7 @@ const Counter = styled.div`
   background-color: white;
   border-radius: 15px;
   padding: 2px 15px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 `
 
 const ButtonCounter = styled.button`
@@ -71,18 +73,27 @@ const ButtonCounter = styled.button`
 const ButtonAddtoCart = styled.button`
   display: flex;
   align-items: center;
-  font-family: Fredoka One;
-  font-size: 1rem;
   margin: 10px;
   padding: 8px;
   width: auto;
-  border-radius: 15px;
-  background-color: #f3e816;
-  border: #1e005a solid 2px;
-  &:hover {
+  font-family: Fredoka One;
+  font-size: 1rem;
   color: #ffffff;
+  border: #1e005a solid 1px;
+  border-radius: 15px;
   background-color:#1e005a;
-  border: #f3e816 solid 2px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  &:hover {
+  color: #1e005a;
+  background-color: #f3e816;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  
   transition: 800ms ease;
   cursor: pointer;
+  @media (max-width: 767px) {
+     {
+      flex-flow: wrap;
+    }
 `
+
+export default ItemCount;

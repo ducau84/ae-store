@@ -11,7 +11,6 @@ const LeftNav = ( { open, categories } ) => {
   );
 };
 
-export default LeftNav;
 
 const Menu = styled.ul`
   list-style: none;
@@ -43,3 +42,5 @@ const Menu = styled.ul`
     }
   }
 `
+
+export default LeftNav;

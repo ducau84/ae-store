@@ -1,31 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import ItemList from "./ItemList.js";
-import getData from "../utils/getData.js";
-import mockupProducts from "../data/products.json";
 import { FallingLines } from "react-loader-spinner";
 import styled from "styled-components";
 
-
 const ItemListContainer = ( { greeting } ) => {
-
-  // eslint-disable-next-line no-unused-vars
-  const onAdd = ( cantidad ) => {
-    
-    toast.success( `¡Agregaste ${cantidad} ítem/s al carrito!` );
-  };
-
   const [ showProductList, setProductList ] = useState( [] );
   const [ loadingProducts, setLoading ] = useState( true );
 
   useEffect( () => {
-    setLoading( true );
-
-    getData( mockupProducts ).then( ( res, rej ) => {
-      setLoading( false );
-      setProductList( JSON.parse( res ) );
-    } );
+    setTimeout( () => {
+      fetch( "https://interactividades-server.herokuapp.com/productos" )
+        .then( ( response ) => response.json() )
+        .then( ( data ) => {
+          setProductList( data );
+        } )
+        .finally( () => {
+          setLoading( false );
+        } );
+    }, 2000 );
   }, [] );
 
   return (
@@ -35,31 +27,27 @@ const ItemListContainer = ( { greeting } ) => {
       </Greeter>
       <BooksContainer>
         {
-          loadingProducts
-          ?
+          loadingProducts 
+         ? 
           <FallingLines color="#e6077a" width="450" visible={true} />
-          :
+         : 
           <ItemList showProductList={showProductList} />
         }
       </BooksContainer>
-      <ToastContainer />
     </>
   );
 };
 
-export default ItemListContainer;
-
-
 const Greeter = styled.div`
   margin: 20px;
   text-align: center;
-   h1 {
+  h1 {
     font-family: "Fredoka One";
     color: #0d2538;
     text-transform: Uppercase;
     font-size: 3rem;
   }
-`
+`;
 
 const BooksContainer = styled.section`
   display: grid;
@@ -68,8 +56,7 @@ const BooksContainer = styled.section`
   gap: 1rem;
 
   @media (max-width: 767px) {
-   
-    {
+     {
       grid-template-columns: auto auto;
     }
     svg {
@@ -78,9 +65,10 @@ const BooksContainer = styled.section`
   }
 
   @media (max-width: 467px) {
-
-    {
+     {
       grid-template-columns: auto;
     }
   }
-`
+`;
+
+export default ItemListContainer;
