@@ -44,9 +44,8 @@ const LogoContainer = styled.div`
 `
 
 const Logo = styled.img`
-  width: 80%;
+  max-width: 80px;
   height: auto;
-  max-width: 110px;
   @media (max-width: 768px) {
     max-width: 65px;
   }

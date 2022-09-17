@@ -10,11 +10,12 @@ const ItemDetail = ( { product, onAdd } ) => {
                 <h3>Autor: {product.autor}</h3>
             </ProductHeader>
             <ProductDetailContainer>
-                <ProductDescription>
+                <ProductCover>
                     <img src={product.img} alt="book cover" />
-                    <h4>{product.desc}</h4>
-                </ProductDescription>
+                    <span>Stock: {product.stock} unidades</span>
+                </ProductCover>
                 <ProductCounterContainer>
+                    <h4>{product.desc}</h4>
                     <h2>
                         Precio:{" "}
                         {new Intl.NumberFormat( "es-AR", {
@@ -23,7 +24,6 @@ const ItemDetail = ( { product, onAdd } ) => {
                         } ).format( product.price )}
                     </h2>
                     <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
-                    <span>Stock: {product.stock} unidades</span>
                 </ProductCounterContainer>
             </ProductDetailContainer>
         </>
@@ -33,14 +33,16 @@ const ItemDetail = ( { product, onAdd } ) => {
 const ProductHeader = styled.div`
   text-align: center;
   h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     font-family: Fredoka One;
+    padding-bottom: 1rem;
   }
   h3 {
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
-    font-weight: 100;
-    font-size: 1rem;
+    font-weight: 800;
+    font-size: 1.3rem;
+    text-transform: uppercase;
   }
 `;
 
@@ -54,31 +56,36 @@ const ProductDetailContainer = styled.div`
     }
  `
 
-const ProductDescription = styled.div`
+const ProductCover = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  max-width: 500px;
+  align-items: center;
+  max-height: 80vh;
   img {
     width: 100%;
-    max-width: 500px;
-  }
-  h4 {
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    text-align: justify;
+    max-width: 700px;
   }
 `
 
 const ProductCounterContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  max-width: 300px;
-  margin-top:2rem;
+  max-width: 400px;
+  margin: 2rem;
+  h2{
+    font-size: 2rem;
+  }
+  h4 {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-align: justify;
+    padding: 2rem 0;
+  }
 `
 
 export default ItemDetail;

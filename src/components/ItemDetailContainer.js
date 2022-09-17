@@ -19,10 +19,10 @@ const ItemDetailContainer = () => {
 
     useEffect( () => {
     setTimeout( () => {
-        fetch( 'https://interactividades-server.herokuapp.com/productos' )
+        fetch( 'https://interactividades-server.herokuapp.com/productos/4' )
           .then( ( response ) => response.json() )
           .then( ( data ) => {
-            setProductDetail( data[3] )
+            setProductDetail( data )
           } )
           .finally( () => {
             setLoading( false )
@@ -50,10 +50,12 @@ const ProductContainer = styled.section`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: center;
   margin: 1rem auto;
   padding: 20px;
   border-radius: 15px;
-  max-width: 800px;
+  max-width: 1200px;
+  min-height: 80vh;
   font-family: Fredoka One;
   background-color: #e6def733;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
