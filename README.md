@@ -5,6 +5,9 @@
 
 ## Historial de Modificaciones:
 
+### `19/09/2022`
+- Se reemplazó la lógica para obtener datos del servidor por funciones asincrónicas que utilizan **async** y **await** para resolver el **fetch** y el parseo de los datos obtenidos.
+
 ### `17/09/2022`
 - Creación de los archivos *ItemDetailContainer.js* e *ItemDetail.js*, dentro del directorio *src/components*.
   - Dentro del componente *ItemDetailContainer*, se creo una función **fetch** para obtener los datos del producto (del cual se simula su selección), desde el *[mockup server](https://dashboard.heroku.com/apps/interactividades-server)* con un delay de 2.000 ms, El cual es pasado a *ItemDetail* como **prop**.

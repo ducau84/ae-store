@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList.js";
+import { toast, ToastContainer } from "react-toastify";
 import { FallingLines } from "react-loader-spinner";
 import styled from "styled-components";
 
@@ -8,16 +9,24 @@ const ItemListContainer = ( { greeting } ) => {
   const [ loadingProducts, setLoading ] = useState( true );
 
   useEffect( () => {
-    setTimeout( () => {
-      fetch( "https://interactividades-server.herokuapp.com/productos" )
-        .then( ( response ) => response.json() )
-        .then( ( data ) => {
-          setProductList( data );
-        } )
-        .finally( () => {
-          setLoading( false );
-        } );
-    }, 2000 );
+    
+    const getItemList = async () => {
+
+      try {
+        const response = await fetch(
+          "https://interactividades-server.herokuapp.com/productos"
+        );
+        const data = await response.json();
+        setProductList( data );
+      } catch ( err ) {
+        console.error( err );
+        toast.error( "Ocurrió un error cargando los datos desde el Servidor" );
+      } finally {
+        setLoading( false );
+      }
+    };
+
+    getItemList();
   }, [] );
 
   return (
@@ -34,6 +43,7 @@ const ItemListContainer = ( { greeting } ) => {
           <ItemList showProductList={showProductList} />
         }
       </BooksContainer>
+      <ToastContainer />
     </>
   );
 };

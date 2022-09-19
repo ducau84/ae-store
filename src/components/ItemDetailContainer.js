@@ -1,50 +1,52 @@
 import React, { useState, useEffect } from "react";
-import ItemDetail from "./ItemDetail.js"
+import ItemDetail from "./ItemDetail.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styled from "styled-components";
 import { FallingLines } from "react-loader-spinner";
 
-
 const ItemDetailContainer = () => {
+  const onAdd = ( cantidad ) => {
+    toast.success( `¡Agregaste ${cantidad} ítem/s al carrito!` );
+  };
 
-    const onAdd = ( cantidad ) => {
+  const [ showProductDetail, setProductDetail ] = useState( [] );
+  const [ loadingProduct, setLoading ] = useState( true );
 
-        toast.success( `¡Agregaste ${cantidad} ítem/s al carrito!` );
+  useEffect( () => {
 
+    const getItem = async () => {
+
+      try {
+        const response = await fetch(
+          "https://interactividades-server.herokuapp.com/productos/2"
+        );
+        const data = await response.json();
+        setProductDetail( data );
+      } catch ( err ) {
+        console.error( err );
+        toast.error( "Ocurrió un error cargando los datos desde el Servidor" );
+      } finally {
+        setLoading( false );
+      }
     };
 
-    const [ showProductDetail, setProductDetail ] = useState( [] );
-    const [ loadingProduct, setLoading ] = useState( true );
+    getItem();
+  }, [] );
 
-    useEffect( () => {
-    setTimeout( () => {
-        fetch( 'https://interactividades-server.herokuapp.com/productos/4' )
-          .then( ( response ) => response.json() )
-          .then( ( data ) => {
-            setProductDetail( data )
-          } )
-          .finally( () => {
-            setLoading( false )
-          } )
-      }, 2000 )
-    })
-
-    return (
-        <>    
-        <ProductContainer>
-            {
-             loadingProduct 
-            ? 
-             <FallingLines color="#32a3c8" width="300" visible={true} />
-            : 
-             <ItemDetail product={showProductDetail} onAdd={onAdd} />
-            }
-        </ProductContainer>
-        <ToastContainer />
-        </>
-    )
-}
+  return (
+    <>
+      <ProductContainer>
+        {loadingProduct ? (
+          <FallingLines color="#32a3c8" width="300" visible={true} />
+        ) : (
+          <ItemDetail product={showProductDetail} onAdd={onAdd} />
+        )}
+      </ProductContainer>
+      <ToastContainer />
+    </>
+  );
+};
 
 const ProductContainer = styled.section`
   display: flex;
@@ -65,4 +67,4 @@ const ProductContainer = styled.section`
     }
 `
 
-export default ItemDetailContainer
+export default ItemDetailContainer;
