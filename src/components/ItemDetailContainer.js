@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,23 +7,26 @@ import styled from "styled-components";
 import { FallingLines } from "react-loader-spinner";
 
 const ItemDetailContainer = () => {
+
+  let { prodId } = useParams();
+
   const onAdd = ( cantidad ) => {
     toast.success( `¡Agregaste ${cantidad} ítem/s al carrito!` );
   };
 
-  const [ showProductDetail, setProductDetail ] = useState( [] );
+  const [ showProductDetail, setProductDetail ] = useState( {} );
   const [ loadingProduct, setLoading ] = useState( true );
+  const URL_PRODUCT = "https://interactividades-server.herokuapp.com/productos?title=";
 
   useEffect( () => {
 
     const getItem = async () => {
 
       try {
-        const response = await fetch(
-          "https://interactividades-server.herokuapp.com/productos/2"
-        );
+        const response = await fetch(`${URL_PRODUCT}${prodId}`);
         const data = await response.json();
-        setProductDetail( data );
+        console.log(data);
+        setProductDetail( data[0] );
       } catch ( err ) {
         console.error( err );
         toast.error( "Ocurrió un error cargando los datos desde el Servidor" );
@@ -32,7 +36,8 @@ const ItemDetailContainer = () => {
     };
 
     getItem();
-  }, [] );
+
+  }, [prodId] );
 
   return (
     <>
@@ -59,8 +64,11 @@ const ProductContainer = styled.section`
   max-width: 1200px;
   min-height: 80vh;
   font-family: Fredoka One;
-  background-color: #e6def733;
+  background-color: #ffffff87;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  a {
+    text-decoration: none;
+  }
   @media (max-width: 767px) {
     {
       margin: 1rem;

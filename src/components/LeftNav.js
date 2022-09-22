@@ -1,11 +1,15 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const LeftNav = ( { open, categories } ) => {
   return (
     <Menu open={open}>
-      {categories.map( ( category ) => {
-        return <li key={category.id}>{category.nombre}</li>;
+      {categories.map( ( category, index ) => {
+        
+        return <li key={`${category.nombre}-${index}`}>
+                  <NavLink to={category.route}>{category.nombre}</NavLink>
+               </li>;
       } )}
     </Menu>
   );
@@ -17,15 +21,22 @@ const Menu = styled.ul`
   display: flex;
   flex-flow: row nowrap;
   li {
-    padding: 18px 10px;
+    padding: 10px;
+  }
+  a {
+    padding: 5px;
+    color: white;
+    text-decoration: none;
     &:hover {
-      background-color: #5400fc;
+      background-color: #32a3c85c;
       border-radius: 5px;
       transition: 600ms ease;
       cursor: pointer;
     }
   }
-
+  .active{
+      color: #ec0f7d;
+    }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     background-color: #0d2538c9;

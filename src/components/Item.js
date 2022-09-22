@@ -1,15 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Item = ( { product } ) => {
+
   return (
     <>
       <BookContainer>
         <h3>{product.title}</h3>
         <img src={product.img} alt="book cover" />
-        <h4>Precio: Precio: {new Intl.NumberFormat("es-AR", {style: "currency", currency: "ARS"}).format(product.price)}</h4>
+        <h4>Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}</h4>
         <h5>Stock: {product.stock} Unidades</h5>
-        <BtnDetails>Ver Detalle</BtnDetails>
+        <Link to={`/productos/${product.title}`}>
+          <BtnDetails>Ver Detalle</BtnDetails>
+        </Link>
       </BookContainer>
     </>
   );
@@ -22,8 +26,8 @@ const BookContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   font-family: Fredoka One;
-  background-color: #e6def733;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #ffffff87;
+  box-shadow: #0000003d 0px 3px 8px;
   max-width: 320px;
   padding: 20px;
   border-radius: 15px;
@@ -33,13 +37,19 @@ const BookContainer = styled.div`
     min-height: 100px;
   }
   h3 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
     font-weight: 500;
     text-align: center;
+    text-shadow: 0px 3px 3px #0e25373d;
   }
-  h4,
-  h5 {
+  h4 {
+    font-size: 1.3rem;
     font-weight: 200;
     padding: 0.3rem;
+  }
+  a {
+    text-decoration: none;
   }
 `
 
@@ -47,17 +57,19 @@ const BtnDetails = styled.button`
   display: flex;
   align-items: center;
   font-family: Fredoka One;
+  text-transform: uppercase;
   font-size: 1rem;
+  color: #ffffff;
   margin: 5px;
-  padding: 5px;
+  padding: 5px 10px;
   width: auto;
   border-radius: 15px;
-  background-color: #f3e816;
+  background-color: #e70e7b;
   border: #1e005a solid 2px;
+  box-shadow: #0000003d 0px 3px 8px;
   &:hover {
-    color: #ffffff;
-    background-color: #1e005a;
-    border: #f3e816 solid 2px;
+    background-color: #0e2537;
+    border: #32a3c8 solid 2px;
     transition: 800ms ease;
     cursor: pointer;
   }

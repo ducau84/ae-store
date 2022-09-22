@@ -1,23 +1,27 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import logo from "../assets/logo.png";
-import CartWidget from "./CartWidget.js"
+import CartWidget from "./CartWidget.js";
 import styled from "styled-components";
 import Burger from "./Burger";
 
+const Navbar = ({categories}) => {
+  return (
+    <Nav>
+      <LogoContainer>
+        <Link to={"/"}>
+          <Logo src={logo} alt="Logo" />
+        </Link>
 
-const Navbar = ( { categories } ) => {
-    return (
-        <Nav>
-            <LogoContainer>
-                <Logo src={logo} alt="Logo" />
-                <Title>A.E. Store</Title>
-            </LogoContainer>
-            <Burger categories={categories} />
-            <CartWidget />
-        </Nav>
-    );
+        <Link to={"/"}>
+          <Title>A.E. Store</Title>
+        </Link>
+      </LogoContainer>
+      <Burger categories={categories} />
+      <CartWidget />
+    </Nav>
+  );
 };
-
 
 const Nav = styled.nav`
   position: sticky;
@@ -32,12 +36,16 @@ const Nav = styled.nav`
   text-transform: uppercase;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-`
+`;
 
 const LogoContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  a {
+    text-decoration: none;
+    color: white;
+  }
   @media (max-width: 768px) {
     padding-left: 40px;
   }
