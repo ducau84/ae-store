@@ -18,14 +18,14 @@
 Tercer proyecto FrontEnd propio, realizado para implementar los conocimientos adquiridos en el curso de ***React*** de **Coder House**.
 El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en mi caso elegí crear una tienda de libros. Son libros selecciónados para pequeños y grandes lectores, intentando mantener la simplicidad en su navegación, haciéndola accesible para los usuarios en las distintas plataformas disponibles e intentando incorporar los recursos aprendidos y los investigados por fuera del mismo para lograr un proyecto final completo, modular y escalable.
 
-[`Volver Arriba`](#h2-aligncenterae-storeh2)
+[`Volver Arriba`](#descripción-del-repositorio)
 
 ---
 ## Demo de Navegación:
 
 [![Navegación AE Store](https://img.youtube.com/vi/makOiXRWWrQ/0.jpg)](https://youtu.be/makOiXRWWrQ)
 
-[`Volver Arriba`](#h2-aligncenterae-storeh2)
+[`Volver Arriba`](#descripción-del-repositorio)
 
 ---
 
@@ -35,7 +35,7 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 - **[React Toastify](https://fkhadra.github.io/react-toastify/introduction/):** Utilizada para comunicar las alertas al usuario de manera poco intrusiva y estilizada.
 - **[Material Icons](https://mui.com/material-ui/material-icons/):** Utilizados para dar ayudas visuales en los lugares necesarios ( Carrito de Compras, Boton Agregar al Carrito, Volver al Listado ).
 
-[`Volver Arriba`](#h2-aligncenterae-storeh2)
+[`Volver Arriba`](#descripción-del-repositorio)
 
 ---
 ## Historial de Modificaciones:
@@ -75,7 +75,7 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 - Creación del repositorio;
     - Creación de la aplicación mediante el comando **[`npx create-react-app`](https://es.reactjs.org/docs/create-a-new-react-app.html#create-react-app)**.
 
-[`Volver Arriba`](#h2-aligncenterae-storeh2)
+[`Volver Arriba`](#descripción-del-repositorio)
 
 ---
 
@@ -102,4 +102,4 @@ Compila la aplicación para producción en el subdirecorio: `build`.\
 
 Para más información consultar la [documentación](https://es.reactjs.org/docs/getting-started.html) de React.
 
-[`Volver Arriba`](#h2-aligncenterae-storeh2)
+[`Volver Arriba`](#descripción-del-repositorio)
