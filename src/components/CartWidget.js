@@ -15,7 +15,7 @@ const CartWidget = () => {
               </IconButton>
             </Link>
           </Tooltip>
-      );
+  );
 };
 
 export default CartWidget

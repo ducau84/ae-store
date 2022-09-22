@@ -11,10 +11,10 @@ const LeftNav = ( { open, categories } ) => {
       {
         categories.map( ( category, index ) => {
         
-        return <li key={`${category.nombre}-${index}`}>
-                  <NavLink to={category.route}>{category.nombre}</NavLink>
-               </li>;
-      } )
+          return <li key={`${category.nombre}-${index}`}>
+                    <NavLink to={category.route}>{category.nombre}</NavLink>
+                </li>;
+        } )
       }
 
     </Menu>

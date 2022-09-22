@@ -5,7 +5,7 @@ import LeftNav from './LeftNav';
 
 const Burger = ( { categories } ) => {
 
-  const [ open, setOpen ] = useState( false )
+  const [ open, setOpen ] = useState( false );
 
   return (
           <>
@@ -16,7 +16,7 @@ const Burger = ( { categories } ) => {
             </StyledBurger>
             <LeftNav open={open} categories={categories} />
           </>
-      );
+  );
 };
 
 

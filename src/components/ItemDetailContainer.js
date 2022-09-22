@@ -8,15 +8,15 @@ import { FallingLines } from "react-loader-spinner";
 
 const ItemDetailContainer = () => {
 
+  const [ showProductDetail, setProductDetail ] = useState( {} );
+  const [ loadingProduct, setLoading ] = useState( true );
+  const URL_PRODUCT = "https://interactividades-server.herokuapp.com/productos?title=";
+
   let { prodId } = useParams();
 
   const onAdd = ( cantidad ) => {
     toast.success( `¡Agregaste ${cantidad} ítem/s al carrito!` );
   };
-
-  const [ showProductDetail, setProductDetail ] = useState( {} );
-  const [ loadingProduct, setLoading ] = useState( true );
-  const URL_PRODUCT = "https://interactividades-server.herokuapp.com/productos?title=";
 
   useEffect( () => {
 
@@ -54,7 +54,7 @@ const ItemDetailContainer = () => {
             </ProductContainer>
             <ToastContainer />
           </>
-     );
+  );
 };
 
 const ProductContainer = styled.section`

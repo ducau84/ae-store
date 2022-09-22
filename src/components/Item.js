@@ -16,7 +16,7 @@ const Item = ( { product } ) => {
               </Link>
             </BookContainer>
           </>
-      );
+  );
 };
 
 

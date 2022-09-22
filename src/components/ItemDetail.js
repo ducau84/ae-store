@@ -35,7 +35,7 @@ const ItemDetail = ( { product, onAdd } ) => {
               </GoBack>
             </Link>
           </>
-      );
+  );
 };
 
 const ProductHeader = styled.div`

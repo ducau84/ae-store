@@ -7,10 +7,10 @@ import styled from "styled-components";
 
 const ItemListContainer = ( { greeting } ) => {
 
-  let { catId } = useParams();
-
   const [ showProductList, setProductList ] = useState( [] );
   const [ loadingProducts, setLoading ] = useState( true );
+
+  let { catId } = useParams();
 
   const URL_BASE = "https://interactividades-server.herokuapp.com/productos";
   const URL_CATEGORY = "https://interactividades-server.herokuapp.com/productos?genre=";
@@ -58,7 +58,7 @@ const ItemListContainer = ( { greeting } ) => {
 
             <ToastContainer />
           </>
-     );
+  );
 };
 
 

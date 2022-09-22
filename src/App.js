@@ -14,6 +14,7 @@ const categorias = [
 ];
 
 const App = () => {
+
   return (
           <>
             <BrowserRouter>
@@ -26,7 +27,7 @@ const App = () => {
               </Routes>
             </BrowserRouter>
           </>
-     );
+  );
 };
 
 export default App;

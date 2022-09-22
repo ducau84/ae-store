@@ -23,7 +23,7 @@ const Navbar = ({categories}) => {
             <Burger categories={categories} />
             <CartWidget />
           </Nav>
-      );
+  );
 };
 
 const Nav = styled.nav`

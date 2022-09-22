@@ -27,7 +27,7 @@ const ItemCount = ( { initial, stock, onAdd } ) => {
               AGREGAR AL CARRITO
             </ButtonAddtoCart>
           </ShopContainer>
-      );
+  );
 };
 
 
