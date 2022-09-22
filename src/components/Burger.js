@@ -4,19 +4,20 @@ import LeftNav from './LeftNav';
 
 
 const Burger = ( { categories } ) => {
-    const [ open, setOpen ] = useState( false )
 
-    return (
-        <>
+  const [ open, setOpen ] = useState( false )
+
+  return (
+          <>
             <StyledBurger open={open} onClick={() => setOpen( !open )}>
-                <div />
-                <div />
-                <div />
+              <div />
+              <div />
+              <div />
             </StyledBurger>
             <LeftNav open={open} categories={categories} />
-        </>
-    )
-}
+          </>
+      );
+};
 
 
 const StyledBurger = styled.div`
@@ -27,11 +28,13 @@ const StyledBurger = styled.div`
   left: 20px;
   z-index: 20;
   display: none;
+
   @media (max-width: 768px) {
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
   }
+
   div {
     width: 2rem;
     height: 0.25rem;

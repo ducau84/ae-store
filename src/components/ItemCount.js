@@ -15,19 +15,19 @@ const ItemCount = ( { initial, stock, onAdd } ) => {
   };
 
   return (
-    <ShopContainer>
-      <Counter>
-        <span>Cantidad:</span>
-        <ButtonCounter disabled={contador <= 1} onClick={restar}> - </ButtonCounter>
-        <span>{contador}</span>
-        <ButtonCounter disabled={contador >= stock} onClick={sumar}> + </ButtonCounter>
-      </Counter>
-      <ButtonAddtoCart disabled={contador > stock} onClick={() => onAdd( contador )}>
-        <AddShoppingCartTwoToneIcon sx={{ fontSize: 25 }} />
-        AGREGAR AL CARRITO
-      </ButtonAddtoCart>
-    </ShopContainer>
-  );
+          <ShopContainer>
+            <Counter>
+              <span>Cantidad:</span>
+              <ButtonCounter disabled={contador <= 1} onClick={restar}> - </ButtonCounter>
+              <span>{contador}</span>
+              <ButtonCounter disabled={contador >= stock} onClick={sumar}> + </ButtonCounter>
+            </Counter>
+            <ButtonAddtoCart disabled={contador > stock} onClick={() => onAdd( contador )}>
+              <AddShoppingCartTwoToneIcon sx={{ fontSize: 25 }} />
+              AGREGAR AL CARRITO
+            </ButtonAddtoCart>
+          </ShopContainer>
+      );
 };
 
 
@@ -63,11 +63,13 @@ const ButtonCounter = styled.button`
   color: #ffffff;
   font-weight: 500;
   border: #1e005a 2px solid;
-  &:hover{
+  cursor: pointer;
+
+  &:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   background-color: #32a3c8;
   transition: 600ms ease;
-  cursor: pointer;
+  }
 `
 
 const ButtonAddtoCart = styled.button`
@@ -83,16 +85,19 @@ const ButtonAddtoCart = styled.button`
   border-radius: 15px;
   background-color:#0d2538;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer;
+
   &:hover {
   background-color: #32a3c8;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  
   transition: 800ms ease;
-  cursor: pointer;
+  }
+
   @media (max-width: 767px) {
      {
       flex-flow: wrap;
     }
+  }
 `
 
 export default ItemCount;

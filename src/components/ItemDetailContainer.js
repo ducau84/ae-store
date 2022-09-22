@@ -25,12 +25,15 @@ const ItemDetailContainer = () => {
       try {
         const response = await fetch(`${URL_PRODUCT}${prodId}`);
         const data = await response.json();
-        console.log(data);
         setProductDetail( data[0] );
-      } catch ( err ) {
+      } 
+      
+      catch ( err ) {
         console.error( err );
         toast.error( "Ocurrió un error cargando los datos desde el Servidor" );
-      } finally {
+      } 
+      
+      finally {
         setLoading( false );
       }
     };
@@ -40,17 +43,18 @@ const ItemDetailContainer = () => {
   }, [prodId] );
 
   return (
-    <>
-      <ProductContainer>
-        {loadingProduct ? (
-          <FallingLines color="#32a3c8" width="300" visible={true} />
-        ) : (
-          <ItemDetail product={showProductDetail} onAdd={onAdd} />
-        )}
-      </ProductContainer>
-      <ToastContainer />
-    </>
-  );
+          <>
+            <ProductContainer>
+              {loadingProduct 
+              ? 
+                <FallingLines color="#32a3c8" width="300" visible={true} />
+              : 
+                <ItemDetail product={showProductDetail} onAdd={onAdd} />
+              }
+            </ProductContainer>
+            <ToastContainer />
+          </>
+     );
 };
 
 const ProductContainer = styled.section`
@@ -73,6 +77,7 @@ const ProductContainer = styled.section`
     {
       margin: 1rem;
     }
+  }
 `
 
 export default ItemDetailContainer;

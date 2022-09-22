@@ -5,18 +5,18 @@ import styled from "styled-components";
 const Item = ( { product } ) => {
 
   return (
-    <>
-      <BookContainer>
-        <h3>{product.title}</h3>
-        <img src={product.img} alt="book cover" />
-        <h4>Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}</h4>
-        <h5>Stock: {product.stock} Unidades</h5>
-        <Link to={`/productos/${product.title}`}>
-          <BtnDetails>Ver Detalle</BtnDetails>
-        </Link>
-      </BookContainer>
-    </>
-  );
+          <>
+            <BookContainer>
+              <h3>{product.title}</h3>
+              <img src={product.img} alt="book cover" />
+              <h4>Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}</h4>
+              <h5>Stock: {product.stock} Unidades</h5>
+              <Link to={`/productos/${product.title}`}>
+                <BtnDetails>Ver Detalle</BtnDetails>
+              </Link>
+            </BookContainer>
+          </>
+      );
 };
 
 
@@ -67,6 +67,7 @@ const BtnDetails = styled.button`
   background-color: #e70e7b;
   border: #1e005a solid 2px;
   box-shadow: #0000003d 0px 3px 8px;
+
   &:hover {
     background-color: #0e2537;
     border: #32a3c8 solid 2px;

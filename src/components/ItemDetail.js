@@ -6,36 +6,36 @@ import { Link } from "react-router-dom";
 
 const ItemDetail = ( { product, onAdd } ) => {
   return (
-    <>
-      <ProductHeader>
-        <h1>{product.title}</h1>
-        <h3>Autor: {product.autor}</h3>
-      </ProductHeader>
-      <ProductDetailContainer>
-        <ProductCover>
-          <img src={product.img} alt="book cover" />
-          <span>Stock: {product.stock} unidades</span>
-        </ProductCover>
-        <ProductCounterContainer>
-          <h4>{product.desc}</h4>
-          <h2>
-            Precio:{" "}
-            {new Intl.NumberFormat( "es-AR", {
-              style: "currency",
-              currency: "ARS",
-            } ).format( product.price )}
-          </h2>
-          <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
-        </ProductCounterContainer>
-      </ProductDetailContainer>
-      <Link to="/">
-        <GoBack>
-          <ArrowBackTwoToneIcon />
-          Volver Al Listado
-        </GoBack>
-      </Link>
-    </>
-  );
+          <>
+            <ProductHeader>
+              <h1>{product.title}</h1>
+              <h3>Autor: {product.autor}</h3>
+            </ProductHeader>
+            <ProductDetailContainer>
+              <ProductCover>
+                <img src={product.img} alt="book cover" />
+                <span>Stock: {product.stock} unidades</span>
+              </ProductCover>
+              <ProductCounterContainer>
+                <h4>{product.desc}</h4>
+                <h2>
+                  Precio:{" "}
+                  {new Intl.NumberFormat( "es-AR", {
+                    style: "currency",
+                    currency: "ARS",
+                  } ).format( product.price )}
+                </h2>
+                <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
+              </ProductCounterContainer>
+            </ProductDetailContainer>
+            <Link to="/">
+              <GoBack>
+                <ArrowBackTwoToneIcon />
+                Volver Al Listado
+              </GoBack>
+            </Link>
+          </>
+      );
 };
 
 const ProductHeader = styled.div`
@@ -64,6 +64,7 @@ const ProductDetailContainer = styled.div`
      {
       flex-flow: wrap;
     }
+  }
  `
 
 const ProductCover = styled.div`
@@ -127,16 +128,19 @@ const GoBack = styled.button`
   border-radius: 15px;
   background-color: #0e2537;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer;
+
   &:hover {
   background-color: #32a3c8;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  
   transition: 800ms ease;
-  cursor: pointer;
+  }
+  
   @media (max-width: 767px) {
      {
       flex-flow: wrap;
     }
+  }
 `
 
 export default ItemDetail;

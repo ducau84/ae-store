@@ -6,21 +6,24 @@ import styled from "styled-components";
 import Burger from "./Burger";
 
 const Navbar = ({categories}) => {
-  return (
-    <Nav>
-      <LogoContainer>
-        <Link to={"/"}>
-          <Logo src={logo} alt="Logo" />
-        </Link>
 
-        <Link to={"/"}>
-          <Title>A.E. Store</Title>
-        </Link>
-      </LogoContainer>
-      <Burger categories={categories} />
-      <CartWidget />
-    </Nav>
-  );
+  return (
+          <Nav>
+            <LogoContainer>
+
+              <Link to={"/"}>
+                <Logo src={logo} alt="Logo" />
+              </Link>
+
+              <Link to={"/"}>
+                <Title>A.E. Store</Title>
+              </Link>
+
+            </LogoContainer>
+            <Burger categories={categories} />
+            <CartWidget />
+          </Nav>
+      );
 };
 
 const Nav = styled.nav`
@@ -34,9 +37,8 @@ const Nav = styled.nav`
   color: white;
   font-family: "Fredoka One";
   text-transform: uppercase;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-`;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+`
 
 const LogoContainer = styled.div`
   display: flex;
