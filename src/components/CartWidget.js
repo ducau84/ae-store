@@ -8,13 +8,13 @@ import { Link } from "react-router-dom";
 const CartWidget = () => {
 
   return (
-          <Tooltip title="Ver Carrito de Compras">
-            <Link to={'/cart'}>
-              <IconButton sx={{ color: lightBlue[ 50 ] }}>
-                <ShoppingCartTwoToneIcon fontSize="large" />
-              </IconButton>
-            </Link>
-          </Tooltip>
+    <Tooltip title="Ver Carrito de Compras">
+      <Link to={'/cart'}>
+        <IconButton sx={{ color: lightBlue[ 50 ] }}>
+          <ShoppingCartTwoToneIcon fontSize="large" />
+        </IconButton>
+      </Link>
+    </Tooltip>
   );
 };
 

@@ -42,22 +42,22 @@ const ItemListContainer = ( { greeting } ) => {
   }, [ catId ] );
 
   return (
-          <>
-            <Greeter>
-              <h1>{greeting}</h1>
-            </Greeter>
-            <BooksContainer>
-              {
-                loadingProducts
-                ?
-                <FallingLines color="#e6077a" width="450" visible={true} />
-                :
-                <ItemList showProductList={showProductList} />
-              }
-            </BooksContainer>
+    <>
+      <Greeter>
+        <h1>{greeting}</h1>
+      </Greeter>
+      <BooksContainer>
+        {
+          loadingProducts
+          ?
+          <FallingLines color="#e6077a" width="450" visible={true} />
+          :
+          <ItemList showProductList={showProductList} />
+        }
+      </BooksContainer>
 
-            <ToastContainer />
-          </>
+      <ToastContainer />
+    </>
   );
 };
 
