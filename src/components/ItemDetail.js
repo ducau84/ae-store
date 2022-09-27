@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ItemCount from "./ItemCount.js";
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import ShoppingCartCheckoutTwoToneIcon from '@mui/icons-material/ShoppingCartCheckoutTwoTone';
 
-const ItemDetail = ( { product, onAdd } ) => {
+
+const ItemDetail = ( { product } ) => {
+
+  const [endBuyProcess, setEndBuyProcess] = useState(false);
+
+  const onAdd = ( cantidad ) => {
+    
+    setEndBuyProcess( true )
+    toast.success( `¡Agregaste ${cantidad} ítem/s al carrito!` );
+
+  };
+
   return (
           <>
             <ProductHeader>
@@ -25,14 +38,25 @@ const ItemDetail = ( { product, onAdd } ) => {
                     currency: "ARS",
                   } ).format( product.price )}
                 </h2>
+                { 
+                  endBuyProcess 
+                ?
+                <Link to="/cart">
+                  <GoTo>
+                    <ShoppingCartCheckoutTwoToneIcon />
+                    Ir Al Carrito
+                  </GoTo>
+                </Link>
+                 :
                 <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
+                }
               </ProductCounterContainer>
             </ProductDetailContainer>
             <Link to="/">
-              <GoBack>
+              <GoTo>
                 <ArrowBackTwoToneIcon />
                 Volver Al Listado
-              </GoBack>
+              </GoTo>
             </Link>
           </>
   );
@@ -114,7 +138,7 @@ const ProductCounterContainer = styled.div`
   }
 `
 
-const GoBack = styled.button`
+const GoTo = styled.button`
   display: flex;
   align-items: center;
   margin: 10px;

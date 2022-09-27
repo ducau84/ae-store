@@ -14,10 +14,6 @@ const ItemDetailContainer = () => {
 
   let { prodId } = useParams();
 
-  const onAdd = ( cantidad ) => {
-    toast.success( `¡Agregaste ${cantidad} ítem/s al carrito!` );
-  };
-
   useEffect( () => {
 
     const getItem = async () => {
@@ -49,7 +45,7 @@ const ItemDetailContainer = () => {
               ? 
                 <FallingLines color="#32a3c8" width="300" visible={true} />
               : 
-                <ItemDetail product={showProductDetail} onAdd={onAdd} />
+                <ItemDetail product={showProductDetail} />
               }
             </ProductContainer>
             <ToastContainer />
