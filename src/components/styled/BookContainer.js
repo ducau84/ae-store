@@ -28,6 +28,11 @@ export const BookContainer = styled.div`
     font-weight: 200;
     padding: 0.3rem;
   }
+  h5 {
+    font-size: 0.8rem;
+    font-weight: 200;
+    padding: 0.3rem;
+  }
   a {
     text-decoration: none;
   }

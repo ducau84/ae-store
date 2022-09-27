@@ -10,7 +10,7 @@ font-family: Fredoka One;
 font-size: 1rem;
 text-transform: uppercase;
 color: #ffffff;
-border: #fff solid 1px;
+border: #fff solid 2px;
 border-radius: 15px;
 background-color: #0e2537;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;

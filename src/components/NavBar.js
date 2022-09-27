@@ -7,7 +7,7 @@ import { Nav } from "./styled/Nav";
 import { LogoContainer, Logo } from "./styled/Logo";
 import { Title } from "./styled/NavTitle";
 
-const Navbar = ( { categories } ) => {
+const NavBar = ( { categories } ) => {
 
   return (
     <Nav>
@@ -28,4 +28,4 @@ const Navbar = ( { categories } ) => {
   );
 };
 
-export default Navbar;
+export default NavBar;

@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import ItemList from "./ItemList.js";
 import { toast, ToastContainer } from "react-toastify";
 import { FallingLines } from "react-loader-spinner";
-import styled from "styled-components";
+import { BooksListContainer } from "./styled/BooksListContainer.js";
+import { Greeter } from "./styled/Greeter.js";
 
 const ItemListContainer = ( { greeting } ) => {
 
@@ -46,54 +47,19 @@ const ItemListContainer = ( { greeting } ) => {
       <Greeter>
         <h1>{greeting}</h1>
       </Greeter>
-      <BooksContainer>
+      <BooksListContainer>
         {
           loadingProducts
-          ?
-          <FallingLines color="#e6077a" width="450" visible={true} />
-          :
-          <ItemList showProductList={showProductList} />
+            ?
+            <FallingLines color="#e6077a" width="450" visible={true} />
+            :
+            <ItemList showProductList={showProductList} />
         }
-      </BooksContainer>
+      </BooksListContainer>
 
       <ToastContainer />
     </>
   );
 };
-
-
-const Greeter = styled.div`
-  padding: 20px;
-  text-align: center;
-  h1 {
-    font-family: "Fredoka One";
-    color: #0d2538;
-    text-transform: Uppercase;
-    font-size: 3rem;
-    text-shadow: 0px 3px 3px #0e25373d;
-  }
-`
-
-const BooksContainer = styled.section`
-  display: grid;
-  justify-content: center;
-  grid-template-columns: auto auto auto;
-  gap: 1rem;
-
-  @media (max-width: 767px) {
-     {
-      grid-template-columns: auto auto;
-    }
-    svg {
-      width: 250px;
-    }
-  }
-
-  @media (max-width: 467px) {
-     {
-      grid-template-columns: auto;
-    }
-  }
-`
 
 export default ItemListContainer;

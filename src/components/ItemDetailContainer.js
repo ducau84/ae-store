@@ -42,10 +42,11 @@ const ItemDetailContainer = () => {
   return (
     <>
       <ProductContainer>
-        {loadingProduct 
-        ? 
+        {
+          loadingProduct 
+          ? 
           <FallingLines color="#32a3c8" width="300" visible={true} />
-        : 
+          : 
           <ItemDetail product={showProductDetail} />
         }
       </ProductContainer>

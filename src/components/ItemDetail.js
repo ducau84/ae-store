@@ -14,13 +14,11 @@ import { ShopContainer } from "./styled/ShopContainer.js";
 
 const ItemDetail = ( { product } ) => {
 
-  const [ endBuyProcess, setEndBuyProcess ] = useState( false );
+  const [ counter, setCounter ] = useState();
 
   const onAdd = ( cantidad ) => {
-
-    setEndBuyProcess( true )
+    setCounter( cantidad )
     toast.success( `¡Agregaste ${cantidad} ítem/s al carrito!` );
-
   };
 
   return (
@@ -36,15 +34,9 @@ const ItemDetail = ( { product } ) => {
         </ProductCover>
         <ProductCounterContainer>
           <h4>{product.desc}</h4>
-          <h2>
-            Precio:{" "}
-            {new Intl.NumberFormat( "es-AR", {
-              style: "currency",
-              currency: "ARS",
-            } ).format( product.price )}
-          </h2>
+          <h2>Precio:{new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}</h2>
           {
-            endBuyProcess
+            counter
               ?
               <ShopContainer>
                 <Link to="/cart">

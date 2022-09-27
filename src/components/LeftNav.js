@@ -22,5 +22,4 @@ const LeftNav = ( { open, categories } ) => {
   );
 };
 
-
 export default LeftNav;
