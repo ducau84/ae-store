@@ -20,16 +20,16 @@ const ItemDetailContainer = () => {
     const getItem = async () => {
 
       try {
-        const response = await fetch(`${URL_PRODUCT}${prodId}`);
+        const response = await fetch( `${URL_PRODUCT}${prodId}` );
         const data = await response.json();
-        setProductDetail( data[0] );
-      } 
-      
+        setProductDetail( data[ 0 ] );
+      }
+
       catch ( err ) {
         console.error( err );
         toast.error( "Ocurrió un error cargando los datos desde el Servidor" );
-      } 
-      
+      }
+
       finally {
         setLoading( false );
       }
@@ -37,17 +37,17 @@ const ItemDetailContainer = () => {
 
     getItem();
 
-  }, [prodId] );
+  }, [ prodId ] );
 
   return (
     <>
       <ProductContainer>
         {
-          loadingProduct 
-          ? 
-          <FallingLines color="#32a3c8" width="300" visible={true} />
-          : 
-          <ItemDetail product={showProductDetail} />
+          loadingProduct
+            ?
+            <FallingLines color="#32a3c8" width="300" visible={true} />
+            :
+            <ItemDetail product={showProductDetail} />
         }
       </ProductContainer>
       <ToastContainer />

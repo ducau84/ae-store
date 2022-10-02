@@ -7,7 +7,8 @@ export const ShopContainer = styled.div`
   align-items: center;
   background-color: #0e253736;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  max-width: 320px;
+  width: 100%;
+  max-width: 600px;
   padding: 1.5rem;
   margin: 1rem;
   border-radius: 15px;

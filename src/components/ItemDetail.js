@@ -1,24 +1,28 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount.js";
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone";
-import { Link } from "react-router-dom";
+import ShoppingCartCheckoutTwoToneIcon from "@mui/icons-material/ShoppingCartCheckoutTwoTone";
 import { toast } from "react-toastify";
-import ShoppingCartCheckoutTwoToneIcon from '@mui/icons-material/ShoppingCartCheckoutTwoTone';
-import { Button } from "./styled/Button.js"
-import { ProductHeader } from "./styled/ProductHeader.js";
-import { ProductCover } from "./styled/ProductCover.js";
-import { ProductDetailContainer } from "./styled/ProductDetailContainer.js";
-import { ProductCounterContainer } from "./styled/ProductCounterContainer.js";
-import { ShopContainer } from "./styled/ShopContainer.js";
-
+import { Button } from "../styled/Button.js";
+import { ProductHeader } from "../styled/ProductHeader.js";
+import { ProductCover } from "../styled/ProductCover.js";
+import { ProductDetailContainer } from "../styled/ProductDetailContainer.js";
+import { ProductCounterContainer } from "../styled/ProductCounterContainer.js";
+import { CartContext } from "../context/CartContext.js";
 
 const ItemDetail = ( { product } ) => {
 
-  const [ counter, setCounter ] = useState();
+  const [ goToCartBtn, setGoToCartBtn ] = useState( false );
+
+  const { addItem } = useContext( CartContext );
 
   const onAdd = ( cantidad ) => {
-    setCounter( cantidad )
-    toast.success( `¡Agregaste ${cantidad} ítem/s al carrito!` );
+
+    addItem( product, cantidad );
+    setGoToCartBtn( true );
+    toast.success( `¡Agregaste: ${cantidad} ${product.title} al carrito!` )
+
   };
 
   return (
@@ -30,33 +34,32 @@ const ItemDetail = ( { product } ) => {
       <ProductDetailContainer>
         <ProductCover>
           <img src={product.img} alt="book cover" />
-          <span>Stock: {product.stock} unidades</span>
+          <h2>
+            Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}
+          </h2>
         </ProductCover>
         <ProductCounterContainer>
           <h4>{product.desc}</h4>
-          <h2>Precio:{new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}</h2>
           {
-            counter
+            goToCartBtn
               ?
-              <ShopContainer>
-                <Link to="/cart">
-                  <Button>
-                    <ShoppingCartCheckoutTwoToneIcon />
-                    Ir Al Carrito
-                  </Button>
-                </Link>
-              </ShopContainer>
+              <Link to="/cart">
+                <Button>
+                  <ShoppingCartCheckoutTwoToneIcon />
+                  Ir Al Carrito
+                </Button>
+              </Link>
               :
               <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
           }
+          <Link to="/">
+            <Button>
+              <ArrowBackTwoToneIcon />
+              Volver Al Listado
+            </Button>
+          </Link>
         </ProductCounterContainer>
       </ProductDetailContainer>
-      <Link to="/">
-        <Button>
-          <ArrowBackTwoToneIcon />
-          Volver Al Listado
-        </Button>
-      </Link>
     </>
   );
 };

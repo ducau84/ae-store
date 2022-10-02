@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar.js";
 import ItemListContainer from "./components/ItemListContainer.js";
 import ItemDetailContainer from "./components/ItemDetailContainer.js";
 import Cart from "./components/Cart.js";
+import CartProvider from "../src/context/CartContext.js"
 
 const saludo = "¡Bienvenido a nuestra tienda!";
 
@@ -18,13 +19,15 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <NavBar categories={categorias} />
-        <Routes>
-          <Route path='/' element={<ItemListContainer greeting={saludo} />} />
-          <Route path='/categoria/:catId' element={<ItemListContainer greeting={saludo} />} />
-          <Route path='/productos/:prodId' element={<ItemDetailContainer />} />
-          <Route path='/cart' element={<Cart />} />
-        </Routes>
+        <CartProvider>
+          <NavBar categories={categorias} />
+          <Routes>
+            <Route path='/' element={<ItemListContainer greeting={saludo} />} />
+            <Route path='/categoria/:catId' element={<ItemListContainer greeting={saludo} />} />
+            <Route path='/productos/:prodId' element={<ItemDetailContainer />} />
+            <Route path='/cart' element={<Cart />} />
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
     </>
   );

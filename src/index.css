@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     border:0;
+    text-decoration: none;
   }
   @media (max-width: 767px) {
     html{

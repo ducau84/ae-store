@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import AddShoppingCartTwoToneIcon from "@mui/icons-material/AddShoppingCartTwoTone";
-import { Button } from "./styled/Button";
-import { ButtonCounter } from "./styled/ButtonCounter";
-import { ShopContainer } from "./styled/ShopContainer";
-import { Counter } from "./styled/Counter";
+import { Button } from "../styled/Button";
+import { ButtonCounter } from "../styled/ButtonCounter";
+import { ShopContainer } from "../styled/ShopContainer";
+import { Counter } from "../styled/Counter";
+import { StockContainer } from "../styled/StockContainer";
+import { toast } from "react-toastify";
 
 
 const ItemCount = ( { initial, stock, onAdd } ) => {
@@ -20,13 +22,16 @@ const ItemCount = ( { initial, stock, onAdd } ) => {
 
   return (
     <ShopContainer>
+      <StockContainer>
+        Stock: {stock} unidades
+      </StockContainer>
       <Counter>
         <span>Cantidad:</span>
         <ButtonCounter disabled={contador <= 1} onClick={restar}> - </ButtonCounter>
         <span>{contador}</span>
         <ButtonCounter disabled={contador >= stock} onClick={sumar}> + </ButtonCounter>
       </Counter>
-      <Button disabled={contador > stock} onClick={() => onAdd( contador )}>
+      <Button onClick={() => stock <= 0 ? toast.error( `¡No hay más unidades disponibles!` ) : onAdd( contador )}>
         <AddShoppingCartTwoToneIcon sx={{ fontSize: 25 }} />
         AGREGAR AL CARRITO
       </Button>
