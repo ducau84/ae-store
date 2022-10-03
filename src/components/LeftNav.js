@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Menu } from "./styled/NavMenu";
+import { Menu } from "../styled/NavMenu";
 
 const LeftNav = ( { open, categories } ) => {
 

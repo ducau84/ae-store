@@ -3,7 +3,7 @@ import { lightBlue } from '@mui/material/colors';
 import Tooltip from "@mui/material/Tooltip";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import { Link } from "react-router-dom";
-import { CartCounter } from "./styled/CartCounter";
+import { CartCounter } from "../styled/CartCounter";
 
 const CartWidget = () => {
 

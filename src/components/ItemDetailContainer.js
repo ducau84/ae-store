@@ -4,7 +4,7 @@ import ItemDetail from "./ItemDetail.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FallingLines } from "react-loader-spinner";
-import { ProductContainer } from "./styled/ProductContainer.js";
+import { ProductContainer } from "../styled/ProductContainer.js";
 
 
 const ItemDetailContainer = () => {

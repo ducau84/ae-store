@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import ItemList from "./ItemList.js";
 import { toast, ToastContainer } from "react-toastify";
 import { FallingLines } from "react-loader-spinner";
-import { BooksListContainer } from "./styled/BooksListContainer.js";
-import { Greeter } from "./styled/Greeter.js";
+import { BooksListContainer } from "../styled/BooksListContainer.js";
+import { Greeter } from "../styled/Greeter.js";
 
 const ItemListContainer = ( { greeting } ) => {
 

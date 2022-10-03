@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import CartWidget from "./CartWidget.js";
 import Burger from "./Burger";
-import { Nav } from "./styled/Nav";
-import { LogoContainer, Logo } from "./styled/Logo";
-import { Title } from "./styled/NavTitle";
+import { Nav } from "../styled/Nav";
+import { LogoContainer, Logo } from "../styled/Logo";
+import { Title } from "../styled/NavTitle";
 
 const NavBar = ( { categories } ) => {
 
