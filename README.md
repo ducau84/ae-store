@@ -23,7 +23,7 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 ---
 ## Demo de Navegación:
 
-[![Navegación AE Store](https://img.youtube.com/vi/makOiXRWWrQ/0.jpg)](https://youtu.be/makOiXRWWrQ)
+<p align="center"><img src="./public/images/demo_aestore.gif"></p>
 
 [`Volver Arriba`](#descripción-del-repositorio)
 
@@ -39,6 +39,20 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 
 ---
 ## Historial de Modificaciones:
+
+### `03/10/2022`
+- Creación del archivo *CartContext.js* en */src/context/* en el mismo se definió el estado *cart* como un **array** vacío (inserto un **console.log** en el mismo y las funciones:
+  - *isInCart* itera el array *cart* para comprobar si ya existe el producto que se quiere agregar el carrito.
+  - *addItem* ejecuta la función anterior y en caso positivo desestructura el **array** y sólo le suma al **objeto** la cantidad agregada. En caso negativo, agrega el **objeto** *producto* al **array** *cart*, agregandole una nueva propiedad *qty* donde figuran las unidades adquiridas del mismo.
+  - *removeItem* itera el array *cart* y en base al **id** del producto que se desea eliminar, lo filtra y excluye del mismo.
+  - *clearCart* define nuevamente el estado *cart* como un **array** vació.
+- En *App* se encierran la *NavBar* y las *Routes* en el *CartProvider*, definido previamente en *CartContext*.
+- En *ItemDetail* se modifica la función *onAdd* para que además de mostrar la **toast** con el producto agregado, cambiar *ItemCount* por el botón **Ir al Carrito**, ejecute la función del *CartContext* *addItem*.  
+  
+### `27/09/2022`
+- En *ItemDetail*, mediante el uso de un operador ternario, capturo un evento *onClick* emitido desde *ItemCount* al botón "agregar al carrito" y reemplazo el módulo *ItemCount* por un botón **Ir al Carrito**.
+- Extracción de los *Styled Components* para optimizar el tamaño de los módulos, los mismos ahora se encuentran en el directorio */src/styled/* y son importados en cada módulo que deben ser utilizados.
+ 
 ### `21/09/2022`
 - Implementación de la estructura de navegación, permitida gracias a la importación de la librería *[React Router](https://reactrouter.com/en/main)*.
 ### `19/09/2022`
