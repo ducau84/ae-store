@@ -1,34 +1,54 @@
-import React, { useContext } from 'react'
-import { CartContext } from '../context/CartContext';
-import { Link } from 'react-router-dom';
-import CartItems from './CartItems';
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { Link } from "react-router-dom";
+import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone";
+import { RemoveShoppingCartTwoTone } from "@mui/icons-material";
+import Tooltip from "@mui/material/Tooltip";
+import CartItems from "./CartItems";
+import { CartContainer } from "../styled/CartContainer";
+import { Button } from "../styled/Button";
 
 const Cart = () => {
-
   const { cart, operPrice, clearCart } = useContext( CartContext );
 
   if ( cart.length === 0 ) {
 
     return (
       <>
-        < h1 > El Carrito Está Vacío</h1 >
-        <Link to="/"> <button>Volver al Listado</button> </Link>
+        <CartContainer>
+          <h1>¡El Carrito Está Vacío!</h1>
+          <Link to="/">
+            <Button>
+              <ArrowBackTwoToneIcon />
+              Volver Al Listado
+            </Button>
+          </Link>
+        </CartContainer>
       </>
     );
-  } 
-  else {
-    
+  } else {
+
     return (
       <>
-        {cart.map( ( product, index ) => <CartItems key={`${product.title}-${index}`} product={product} /> )}
-        <p>
-          Total: {operPrice()};
-        </p>
-        <button onClick={() => clearCart()}>Vaciar el Carrito</button>
+        <CartContainer>
+          <h1>Mi Carrito:</h1>
+          <div>
+            <Tooltip title="Vaciar El Carrito">
+              <Button delete onClick={() => clearCart()}>
+                <RemoveShoppingCartTwoTone /> Vaciar el Carrito
+              </Button>
+            </Tooltip>
+            <h2>
+              Total: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( operPrice() )}
+            </h2>
+          </div>
+          {cart.map( ( product, index ) => (
+            <CartItems key={`${product.title}-${index}`} product={product} />
+          ) )}
+        </CartContainer>
       </>
     );
   }
-
 };
 
-export default Cart
+export default Cart;

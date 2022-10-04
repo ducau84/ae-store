@@ -50,7 +50,10 @@ const ItemDetailContainer = () => {
             <ItemDetail product={showProductDetail} />
         }
       </ProductContainer>
-      <ToastContainer />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+      />
     </>
   );
 };
