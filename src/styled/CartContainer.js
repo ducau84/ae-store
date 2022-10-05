@@ -5,6 +5,7 @@ export const CartContainer = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+  min-height: 80vh;
   font-family: Fredoka One;
   margin: 1rem;
   h1 {

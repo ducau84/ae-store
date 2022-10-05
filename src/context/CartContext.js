@@ -33,7 +33,7 @@ const CartProvider = ( { children } ) => {
 
   const removeItem = ( id ) => setCart( cart.filter( ( product ) => product.id !== id ) );
 
-  const totalItems = () => cart.reduce( ( quantity, item ) => quantity + item.qty, 0 );
+  const totalItems = () => cart.reduce( ( quantity, product ) => quantity + product.qty, 0 );
 
   const operPrice = () => {
     return cart.reduce( ( total, product ) => total + product.qty * product.price, 0 );

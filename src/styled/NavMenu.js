@@ -12,7 +12,6 @@ export const Menu = styled.ul`
   a {
     padding: 5px;
     color: white;
-    text-decoration: none;
 
     &:hover {
       background-color: #32a3c85c;
@@ -31,9 +30,9 @@ export const Menu = styled.ul`
     transform: ${( { open } ) => ( open ? "translateX(0)" : "translateX(-100%)" )};
     top: 0;
     left: 0;
-    height: 50vh;
-    width: 300px;
-    padding-top: 5.5rem;
+    height: auto;
+    width: 15rem;
+    padding: 5.5rem 0;
     transition: transform 0.3s ease-in-out;
     li {
       color: #fff;

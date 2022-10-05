@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 import CartWidget from "./CartWidget.js";
 import Burger from "./Burger";
 import { Nav } from "../styled/Nav";
-import { LogoContainer, Logo } from "../styled/Logo";
+import { LogoContainer } from "../styled/Logo";
 import { Title } from "../styled/NavTitle";
 
 const NavBar = ( { categories } ) => {
@@ -12,15 +12,12 @@ const NavBar = ( { categories } ) => {
   return (
     <Nav>
       <LogoContainer>
-
         <Link to={"/"}>
-          <Logo src={logo} alt="Logo" />
+          <img src={logo} alt="Logo" />
         </Link>
-
         <Link to={"/"}>
           <Title>A.E. Store</Title>
         </Link>
-
       </LogoContainer>
       <Burger categories={categories} />
       <CartWidget />

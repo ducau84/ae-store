@@ -40,8 +40,16 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 ---
 ## Historial de Modificaciones:
 
+### `05/10/2022`
+- En el módulo *Cart.js* se implementa un renderizado condicional, dependiendo de si el array *cart* está vació o no, en caso de estarlo (`cart.length === 0`), muestra un mensaje e ícono alertando que el carrito está vacío y un botón para volver al listado y seguir comprando. En caso de no estár vacío renderiza los ítems contenidos en el mismo mediante un **map** del *cart** para renderizarlo mediante el componente *CartItems.js* .
+  - Creación del módulo *CartItems.js* en */src/components*, en el mismo se desectructura el **array** *cart* y se muestra el detalle de cada artículo en el mismo, y mediante la utlización del *CartContext* aplica las funciones *removeItem* para eliminar un ítem puntual del carrito y *clearCart* para vaciar el carrito.
+- En el módulo *CartWidget* se utiliza una nueva función del *CartContext* ( *totalItems* ) para realizar un renderizado condicionado por el operador **`||`** para que en caso que el total de items en el carrito sea distinto de cero se muestre el total agregado al lado del ícono y en caso de ser **0** no muestre nada. 
+- En el *CartContext* se crearon dós funciones adicionales:
+  - *totalItems* se aplica un **reduce** al *cart*, donde itera la propiedad *qty* de cada producto y se la suma partiendo de **0**.
+  - *operPrice* se aplica un **reduce** al *cart*, donde itera las propiedades *qty* y *price* de cada producto y las multiplica para calcular el costo de cada ítem del carrito y a su vez el total de los mismos.  
+
 ### `03/10/2022`
-- Creación del archivo *CartContext.js* en */src/context/* en el mismo se definió el estado *cart* como un **array** vacío (inserto un **console.log** en el mismo y las funciones:
+- Creación del archivo *CartContext.js* en */src/context/* en el mismo se definió el estado *cart* como un **array** vacío y las funciones:
   - *isInCart* itera el array *cart* para comprobar si ya existe el producto que se quiere agregar el carrito.
   - *addItem* ejecuta la función anterior y en caso positivo desestructura el **array** y sólo le suma al **objeto** la cantidad agregada. En caso negativo, agrega el **objeto** *producto* al **array** *cart*, agregandole una nueva propiedad *qty* donde figuran las unidades adquiridas del mismo.
   - *removeItem* itera el array *cart* y en base al **id** del producto que se desea eliminar, lo filtra y excluye del mismo.

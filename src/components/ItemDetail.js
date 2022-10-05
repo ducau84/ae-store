@@ -34,9 +34,7 @@ const ItemDetail = ( { product } ) => {
       <ProductDetailContainer>
         <ProductCover>
           <img src={product.img} alt="book cover" />
-          <h2>
-            Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}
-          </h2>
+          <h2>Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}</h2>
         </ProductCover>
         <ProductCounterContainer>
           <h4>{product.desc}</h4>
@@ -44,10 +42,7 @@ const ItemDetail = ( { product } ) => {
             goToCartBtn
               ?
               <Link to="/cart">
-                <Button>
-                  <ShoppingCartCheckoutTwoToneIcon />
-                  Ir Al Carrito
-                </Button>
+                <Button><ShoppingCartCheckoutTwoToneIcon /> Ir Al Carrito</Button>
               </Link>
               :
               <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />

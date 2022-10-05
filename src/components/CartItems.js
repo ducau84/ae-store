@@ -19,10 +19,7 @@ const CartItems = ( { product } ) => {
                 <p>Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}</p>
                 <p>Subtotal: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.qty * product.price )}</p>
             </article>
-            <Button delete onClick={() => removeItem( product.id )}>
-                <RemoveShoppingCartTwoToneIcon fontSize="small" />
-                Eliminar
-            </Button>
+            <Button delete onClick={() => removeItem( product.id )}><RemoveShoppingCartTwoToneIcon fontSize="small" />Eliminar</Button>
         </CartItemContainer>
     );
 };
