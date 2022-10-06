@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { db } from "../firebase/firebase.js";
+import { getDocs, collection, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList.js";
 import { toast, ToastContainer } from "react-toastify";
@@ -13,33 +15,34 @@ const ItemListContainer = ( { greeting } ) => {
 
   let { catId } = useParams();
 
-  const URL_BASE = "https://interactividades-server.herokuapp.com/productos";
-  const URL_CATEGORY = "https://interactividades-server.herokuapp.com/productos?genre=";
-
   useEffect( () => {
+    
+    const productsCollection = collection( db, "products" );
+    const queryCat = query( productsCollection, where( "genre", "==", `${catId}` ) );
 
     const getItemList = async () => {
 
       try {
-        const response = await fetch(
-          catId ? `${URL_CATEGORY}${catId}` : URL_BASE
-        );
-        const data = await response.json();
+        const res = await getDocs( catId ? queryCat : productsCollection );
+        const data = res.docs.map( ( product ) => {
+          return {
+            ...product.data(),
+            id: product.id,
+          };
+        } );
         setProductList( data );
-
       }
-
       catch ( err ) {
         console.error( err );
         toast.error( "Ocurrió un error cargando los datos desde el Servidor" );
       }
-
       finally {
         setLoading( false );
       }
     };
 
     getItemList();
+
   }, [ catId ] );
 
   return (

@@ -12,7 +12,7 @@ const Item = ( { product } ) => {
         <h3>{product.title}</h3>
         <img src={product.img} alt="book cover" />
         <h4>Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}</h4>
-        <Link to={`/productos/${product.title}`}>
+        <Link to={`/productos/${product.id}`}>
           <ButtonDetails>Ver Detalle</ButtonDetails>
         </Link>
       </BookContainer>

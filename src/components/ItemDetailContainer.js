@@ -5,38 +5,40 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FallingLines } from "react-loader-spinner";
 import { ProductContainer } from "../styled/ProductContainer.js";
-
+import { db } from "../firebase/firebase.js";
+import { doc, getDoc, collection } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-
   const [ showProductDetail, setProductDetail ] = useState( {} );
   const [ loadingProduct, setLoading ] = useState( true );
-  const URL_PRODUCT = "https://interactividades-server.herokuapp.com/productos?title=";
 
   let { prodId } = useParams();
 
   useEffect( () => {
 
+    const productCollection = collection( db, "products" );
+    const refDoc = doc( productCollection, prodId );
+
     const getItem = async () => {
-
+      
       try {
-        const response = await fetch( `${URL_PRODUCT}${prodId}` );
-        const data = await response.json();
-        setProductDetail( data[ 0 ] );
+        const res = await getDoc( refDoc );
+        setProductDetail( {
+          id: res.id,
+          ...res.data(),
+        } );
       }
-
       catch ( err ) {
         console.error( err );
         toast.error( "Ocurrió un error cargando los datos desde el Servidor" );
       }
-
       finally {
         setLoading( false );
       }
     };
 
     getItem();
-
+    
   }, [ prodId ] );
 
   return (
@@ -50,10 +52,7 @@ const ItemDetailContainer = () => {
             <ItemDetail product={showProductDetail} />
         }
       </ProductContainer>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={2000}
-      />
+      <ToastContainer position="bottom-right" autoClose={2000} />
     </>
   );
 };
