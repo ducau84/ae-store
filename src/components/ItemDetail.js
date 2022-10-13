@@ -42,13 +42,13 @@ const ItemDetail = ( { product } ) => {
             goToCartBtn
               ?
               <Link to="/cart">
-                <Button><ShoppingCartCheckoutTwoToneIcon /> Ir Al Carrito</Button>
+                <Button color="normal"><ShoppingCartCheckoutTwoToneIcon /> Ir Al Carrito</Button>
               </Link>
               :
               <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
           }
           <Link to="/">
-            <Button>
+            <Button color="normal">
               <ArrowBackTwoToneIcon />
               Volver Al Listado
             </Button>

@@ -4,7 +4,7 @@ export const CartContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   min-height: 80vh;
   font-family: Fredoka One;
   margin: 1rem;
@@ -27,9 +27,21 @@ export const CartContainer = styled.div`
   }
   div {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
     margin: 1rem auto;
+  }
+  @media (max-width: 767px) {
+   {
+   button {
+    flex-flow: row nowrap;
+    font-size: 0.9rem;
+    width: auto;
+   }
+   h2 {
+    padding: 0.8rem;
+    text-align: center;
+   }
   }
 `

@@ -5,6 +5,7 @@ import ItemListContainer from "./components/ItemListContainer.js";
 import ItemDetailContainer from "./components/ItemDetailContainer.js";
 import Cart from "./components/Cart.js";
 import CartProvider from "../src/context/CartContext.js"
+import CartCheckOut from "./components/CartCheckOut.js";
 
 const saludo = "¡Bienvenido a nuestra tienda!";
 
@@ -26,6 +27,7 @@ const App = () => {
             <Route path='/categoria/:catId' element={<ItemListContainer greeting={saludo} />} />
             <Route path='/productos/:prodId' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/checkout' element={<CartCheckOut/>}/>
           </Routes>
         </CartProvider>
       </BrowserRouter>

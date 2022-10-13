@@ -1,11 +1,10 @@
-# *<h2 align=center>**"A.E. Store"**</h2>*
-
-## **Descripción del Repositorio**:
+# <center><font size="9">***"A.E. Store"***</font></center>
+>## **Descripción del Repositorio**:
 *Repositorio del Proyecto **"A.E. Store"**, para el curso de ***React***, Comisión **38.090** de **Coder House**.*
 
 ---
 
-## Contenido: 
+>## Índice de Contenido: 
 ### 1. [Descripción del Proyecto](#descripción-del-proyecto).
 ### 2. [Demo de Navegación](#demo-de-navegación).
 ### 3. [Dependencias Extra](#dependencias-extra-no-incluidas-en-el-curso).
@@ -14,33 +13,33 @@
 
 ---
 
-## Descripción del Proyecto:
+>## Descripción del Proyecto:
 Tercer proyecto FrontEnd propio, realizado para implementar los conocimientos adquiridos en el curso de ***React*** de **Coder House**.
 El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en mi caso elegí crear una tienda de libros. Son libros selecciónados para pequeños y grandes lectores, intentando mantener la simplicidad en su navegación, haciéndola accesible para los usuarios en las distintas plataformas disponibles e intentando incorporar los recursos aprendidos y los investigados por fuera del mismo para lograr un proyecto final completo, modular y escalable.
 
-[`Volver Arriba`](#descripción-del-repositorio)
+[`Volver al Índice ↑`](#descripción-del-repositorio)
 
 ---
-## Demo de Navegación:
+>## Demo de Navegación:
 
 <p align="center"><img src="./public/images/demo_aestore.gif"></p>
 
-[`Volver Arriba`](#descripción-del-repositorio)
+[`Volver al Índice ↑`](#descripción-del-repositorio)
 
 ---
 
-## Dependencias Extra (no incluidas en el curso):
+>## Dependencias Extra (no incluidas en el curso):
 - **[Styled Components](https://styled-components.com/):** Utilizada para dar estilo mediante el uso *CSS* dentro del mismo componente, permitiendo la modularización de los mismos.
 - **[React Spinners](https://mhnpd.github.io/react-loader-spinner/):** Utilizada para implementar animaciones de carga, con un formato acorde al diseño de la tienda.
 - **[React Toastify](https://fkhadra.github.io/react-toastify/introduction/):** Utilizada para comunicar las alertas al usuario de manera poco intrusiva y estilizada.
 - **[Material Icons](https://mui.com/material-ui/material-icons/):** Utilizados para dar ayudas visuales en los lugares necesarios ( Carrito de Compras, Boton Agregar al Carrito, Volver al Listado ).
 
-[`Volver Arriba`](#descripción-del-repositorio)
+[`Volver al Índice ↑`](#descripción-del-repositorio)
 
 ---
-## Historial de Modificaciones:
+>## Historial de Modificaciones:
 
-### `06/10/2022`
+>### `06/10/2022` 
 - Configuración e implementación en el proyecto de una base de datos creada en [Firebase](https://firebase.google.com/).
   - Se creó el directorio *firebase* en */src/*, dentro del mismo se creó la **script** *firebase.js*, en el mismo se establecen las credenciales y se definen y exporta la base de datos.
   - En *ItemDetailContainer* e *ItemListContainer* se reemplazaron las funciones **async** que obtenian datos desde el *[mockup server](https://dashboard.heroku.com/apps/interactividades-server)* por otras que los obtienen desde Firebase](https://firebase.google.com/), utilizando las funciones especificas de la libreria. 
@@ -102,11 +101,11 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 - Creación del repositorio;
     - Creación de la aplicación mediante el comando **[`npx create-react-app`](https://es.reactjs.org/docs/create-a-new-react-app.html#create-react-app)**.
 
-[`Volver Arriba`](#descripción-del-repositorio)
+[`Volver al Índice ↑`](#descripción-del-repositorio)
 
 ---
 
-## Comandos Disponibles:
+>## Comandos Disponibles:
 
 En el directorio raíz del proyecto ejecutar:
 
@@ -129,4 +128,4 @@ Compila la aplicación para producción en el subdirecorio: `build`.\
 
 Para más información consultar la [documentación](https://es.reactjs.org/docs/getting-started.html) de React.
 
-[`Volver Arriba`](#descripción-del-repositorio)
+[`Volver al Índice ↑`](#descripción-del-repositorio)
