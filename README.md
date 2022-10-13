@@ -39,6 +39,9 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 ---
 >## Historial de Modificaciones:
 
+>### `13/10/2022`
+- Se crearon dos nuevos componentes: *CartCheckOut* y *CartCheckOutForm*:
+  - En *CartCheckOut* se crea la lógica para darle el cierre a la compra mediante una función **async** que se encarga de recopilar los datos del usuario cargados en *CartCheckOutForm* y los datos del Carrito desde *CartContext* y genera tanto una orden de compra que se envia a la base de datos de [Firebase](https://firebase.google.com/) y actualiza el stock descontando los artículos comprados.
 >### `06/10/2022` 
 - Configuración e implementación en el proyecto de una base de datos creada en [Firebase](https://firebase.google.com/).
   - Se creó el directorio *firebase* en */src/*, dentro del mismo se creó la **script** *firebase.js*, en el mismo se establecen las credenciales y se definen y exporta la base de datos.

@@ -30,7 +30,8 @@ const ItemDetailContainer = () => {
       }
       catch ( err ) {
         console.error( err );
-        toast.error( "Ocurrió un error cargando los datos desde el Servidor" );
+        toast.error( "Ocurrió un error cargando los datos desde el Servidor", {
+          theme: "colored" } );
       }
       finally {
         setLoading( false );

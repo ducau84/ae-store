@@ -20,10 +20,7 @@ const Cart = () => {
           <h1>¡Tu Carrito Está Vacío!</h1>
           <ProductionQuantityLimitsTwoToneIcon sx={{ fontSize: 250, color: '#eb077c' }} />
           <Link to="/">
-            <Button color="normal">
-              <ArrowBackTwoToneIcon />
-              Volver Al Listado
-            </Button>
+            <Button color="normal"><ArrowBackTwoToneIcon /> Volver Al Listado</Button>
           </Link>
         </CartContainer>
       </>
@@ -34,26 +31,19 @@ const Cart = () => {
       <CartContainer>
         <h1>Mi Carrito:</h1>
         <div>
-            <Button color="delete" onClick={() => clearCart()}>
-              <RemoveShoppingCartTwoTone /> Vaciar el Carrito
-            </Button>
+          <Button color="delete" onClick={() => clearCart()}> <RemoveShoppingCartTwoTone /> Vaciar el Carrito </Button>
           <h2>Total: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( operPrice() )}</h2>
           <Link to={'/checkout'}>
-            <Button color="confirm">
-              <ShoppingCartCheckoutTwoTone /> Finalizar Compra
-            </Button>
+            <Button color="confirm"> <ShoppingCartCheckoutTwoTone /> Finalizar Compra </Button>
           </Link>
         </div>
         {
-          cart.map( ( product, index ) => (
-            <CartItems key={`${product.title}-${index}`} product={product} />
-          ) )
-        }
+          cart.map( ( item, index ) => (
+            <CartItems key={`${item.title}-${index}`} item={item} />
+          ) ) }
         <Link to="/">
-                    <Button color="normal">
-                        <ArrowBackTwoToneIcon />Seguir Comprando
-                    </Button>
-                </Link>
+          <Button color="normal"> <ArrowBackTwoToneIcon />Seguir Comprando</Button>
+        </Link>
       </CartContainer>
     </>
   );

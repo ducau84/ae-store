@@ -6,10 +6,9 @@ import { collection, addDoc, serverTimestamp, doc, updateDoc } from "firebase/fi
 import { FallingLines } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone";
-import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
-import CheckTwoToneIcon from '@mui/icons-material/CheckTwoTone';
 import { Button } from "../styled/Button.js";
 import { CheckOutContainer } from "../styled/CheckOutContainer.js";
+import CheckOutForm from "./CheckOutForm.js";
 
 const CartCheckOut = () => {
 
@@ -17,13 +16,7 @@ const CartCheckOut = () => {
   const [ orderPlaced, setOrderPlaced ] = useState( false );
   const [ orderId, setOrderId ] = useState();
   const { cart, clearCart, operPrice } = useContext( CartContext );
-
-  const [ customerData, setCustomerData ] = useState( {
-    name: "",
-    email: "",
-    phone: "",
-    payment: "",
-  } );
+  const [ customerData, setCustomerData ] = useState( { name: "", email: "", phone: "", payment: "" } );
 
   const handleChange = ( e ) => {
     setCustomerData( {
@@ -34,12 +27,14 @@ const CartCheckOut = () => {
 
   const handleSubmit = ( e ) => {
     e.preventDefault();
-    placeOrder();
+    operPrice() === 0
+      ? toast.error( "Tu carrito no puede estar vacío al confirmar la compra", { theme: "colored" } )
+      : placeOrder();
   };
 
-  const updateStock = ( item ) => {
-    const newStock = doc( db, "products", item.id );
-    updateDoc( newStock, { stock: ( item.stock - item.qty ) } )
+  const updateStock = ( product ) => {
+    const newStock = doc( db, "products", product.id );
+    updateDoc( newStock, { stock: product.stock - product.qty } );
   };
 
   const placeOrder = async () => {
@@ -47,30 +42,21 @@ const CartCheckOut = () => {
 
     try {
       const orderData = {
-        customerInfo: {
-          name: customerData.name,
-          email: customerData.email,
-          phone: customerData.phone,
-          payment: customerData.payment,
-        },
-        items: cart.map( item => ( { id: item.id, title: item.title, price: item.price, qty: item.qty } ) ),
+        customerInfo: { name: customerData.name, email: customerData.email, phone: customerData.phone, payment: customerData.payment },
+        items: cart.map( ( item ) => ( { id: item.id, title: item.title, price: item.price, qty: item.qty } ) ),
         total: operPrice(),
         date: serverTimestamp(),
       };
-
-      const salesCollection = collection( db, 'store_sales' );
+      const salesCollection = collection( db, "store_sales" );
       const newOrder = await addDoc( salesCollection, { orderData } );
       setOrderId( newOrder.id );
-    }
-    catch ( err ) {
+    } catch ( err ) {
       console.error( err );
       toast.error( "Ocurrió un error cargando los datos de la compra" );
-
-    }
-    finally {
+    } finally {
       setUlOrder( false );
       setOrderPlaced( true );
-      cart.forEach( item => {
+      cart.forEach( ( item ) => {
         updateStock( item );
       } );
       clearCart();
@@ -81,7 +67,7 @@ const CartCheckOut = () => {
     return (
       <CheckOutContainer>
         <h1>Estamos Cargando tu compra!</h1>
-        <FallingLines color="#faf018" width="300" visible={true} />
+        <FallingLines color="#faf018" width="450" visible={true} />
       </CheckOutContainer>
     );
   }
@@ -91,41 +77,19 @@ const CartCheckOut = () => {
       <CheckOutContainer>
         <h1>¡Muchas gracias por tu Compra!</h1>
         <article>
-          <p>{`${customerData.name}`}, tu código de orden es:
-            <span>{`${orderId}`}</span></p>
+          <p>{`${customerData.name}`}, tu código de orden es: <span>{`${orderId}`}</span> </p>
           <p>¡En breve recibiras un correo electrónico para visualizar el seguimiento de tu compra!.</p>
         </article>
         <Link to="/">
-          <Button color="normal">
-            <ArrowBackTwoToneIcon />Volver al Listado
-          </Button>
+          <Button color="normal"> <ArrowBackTwoToneIcon /> Volver al Listado </Button>
         </Link>
       </CheckOutContainer>
-    )
+    );
   }
 
   return (
-    <CheckOutContainer>
-      <h1>Por favor ingresa tus datos:</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Nombre y Apellido" onChange={handleChange} value={customerData.name} required />
-        <input type="email" name="email" placeholder="Correo Electrónico" onChange={handleChange} value={customerData.email} required />
-        <input type="tel" name="phone" placeholder="Teléfono (10 dígitos)" pattern="[0-9]{10}" onChange={handleChange} value={customerData.phone} required />
-        <h4>Total a abonar: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( operPrice() )}</h4>
-        <select name="payment" onChange={handleChange} value={customerData.payment} required>
-          <option selected disabled value="">Selecciona la forma de pago</option>
-          <option value="transf">Transferencia Bancaria</option>
-          <option value="tarjcred">Tarjeta de Credito</option>
-          <option value="tarjdeb">Tarjeta de Debito</option>
-          <option value="tarjdeb">Rapipago / Pago Fácil</option>
-        </select>
-        <Button color="confirm">Confirmar Compra <CheckTwoToneIcon /></Button>
-      </form>
-      <Link to="/cart">
-        <Button color="delete">Volver Al Carrito <ShoppingCartTwoToneIcon /></Button>
-      </Link>
-    </CheckOutContainer>
+    <CheckOutForm handleSubmit={handleSubmit} handleChange={handleChange} customerData={customerData} />
   );
 };
 
-export default CartCheckOut
+export default CartCheckOut;

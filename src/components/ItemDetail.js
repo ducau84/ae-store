@@ -21,8 +21,8 @@ const ItemDetail = ( { product } ) => {
 
     addItem( product, cantidad );
     setGoToCartBtn( true );
-    toast.success( `¡Agregaste: ${cantidad} ${product.title} al carrito!` )
-
+    toast.success( `¡Agregaste: ${cantidad} ${product.title} al carrito!`, {
+      theme: "colored" } );
   };
 
   return (

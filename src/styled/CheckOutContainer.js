@@ -14,7 +14,7 @@ export const CheckOutContainer = styled.section`
   background-color: #ffffff87;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   article {
-    margin: 2rem;
+    line-height: 3rem;
   }
   h1 {
     font-size: 2.5rem;
