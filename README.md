@@ -22,7 +22,7 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 ---
 >## Demo de Navegación:
 
-<p align="center"><img src="./public/images/demo_aestore.gif"></p>
+<p align="center"><img src="https://firebasestorage.googleapis.com/v0/b/ae-store-2022.appspot.com/o/demo_aestore.gif?alt=media&token=a7e8de31-1f7f-4f9a-9927-6dff9e37f2cb"></p>
 
 [`Volver al Índice ↑`](#descripción-del-repositorio)
 
