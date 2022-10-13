@@ -4,7 +4,7 @@ export const Menu = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
-
+  align-items: center;
   li {
     padding: 10px;
   }
@@ -19,15 +19,16 @@ export const Menu = styled.ul`
       transition: 600ms ease;
     }
   }
-  .active{
-      color: #ec0f7d;
-    }
+  .active {
+    color: #ec0f7d;
+  }
 
   @media (max-width: 768px) {
     flex-flow: column nowrap;
+    align-items: baseline;
     background-color: #0d2538c9;
     position: fixed;
-    transform: ${( { open } ) => ( open ? "translateX(0)" : "translateX(-100%)" )};
+    transform: ${({open}) => (open ? "translateX(0)" : "translateX(-100%)")};
     top: 0;
     left: 0;
     height: auto;
@@ -36,6 +37,11 @@ export const Menu = styled.ul`
     transition: transform 0.3s ease-in-out;
     li {
       color: #fff;
+    }
+    li:nth-child(1),
+    li:nth-child(5),
+    li:nth-child(8) {
+      display: none;
     }
   }
 `

@@ -39,6 +39,12 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 ---
 >## Historial de Modificaciones:
 
+### `24/10/2022`
+- Se crearon dos nuevos componentes *OrderStatus* y *OrderDet*:
+  - En *OrderStatus* se permite consultar el estado de las ordenes realizadas desde un correo electónico específico, para la misma se realiza un **query** a **Firebase** de la **collection** *store_sales*, buscando las entradas que contengan ese dato, en caso de no haber realizado ninguna, muestra un **toast** con un mensaje de alerta, y si encuentra una o varias órdenes las renderiza mendiante un **map** del array obtenido como **prop** en *OrderDet*.
+  - En *OrderDet* se muestrán las ordenes traidas del componente anterior en formato tabla, mostrando los detalles de las mismas, tales como: id, fecha y hora, productos, cantidad, precio, importe total y estado.
+- Se creó el componente *Footer* para darle un cierre estético a la tienda.
+
 >### `13/10/2022`
 - Se crearon dos nuevos componentes: *CartCheckOut* y *CartCheckOutForm*:
   - En *CartCheckOut* se crea la lógica para darle el cierre a la compra mediante una función **async** que se encarga de recopilar los datos del usuario cargados en *CartCheckOutForm* y los datos del Carrito desde *CartContext* y genera tanto una orden de compra que se envia a la base de datos de [Firebase](https://firebase.google.com/) y actualiza el stock descontando los artículos comprados.

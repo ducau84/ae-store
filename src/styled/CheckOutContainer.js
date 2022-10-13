@@ -58,6 +58,11 @@ export const CheckOutContainer = styled.section`
     width: 100%;
     max-width: 20rem;
 
+    label {
+      text-align: center;
+      text-transform: uppercase;
+    }
+
     input,
     select {
       margin: 1rem;
@@ -78,5 +83,15 @@ export const CheckOutContainer = styled.section`
       max-width: 100%;
       margin-bottom: 1rem;
     }
+    div {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      button {
+        max-width: 100%;
+        font-size: 1rem
+      }
+    }
   }
-`
+`;

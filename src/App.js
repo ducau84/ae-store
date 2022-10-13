@@ -6,13 +6,15 @@ import ItemDetailContainer from "./components/ItemDetailContainer.js";
 import Cart from "./components/Cart.js";
 import CartProvider from "../src/context/CartContext.js"
 import CartCheckOut from "./components/CartCheckOut.js";
+import Footer from "./components/Footer.js";
+import OrderStatus from "./components/OrderStatus.js";
 
 const saludo = "¡Bienvenido a nuestra tienda!";
 
 const categorias = [
-	{ id: 1, nombre: "Escolares", route: '/categoria/Escolares' },
-	{ id: 2, nombre: "Infantiles", route: '/categoria/Infantiles' },
-	{ id: 3, nombre: "Narrativas", route: '/categoria/Narrativas' },
+	{ id: 1, name: "Escolares", route: '/category/Escolares' },
+	{ id: 2, name: "Infantiles", route: '/category/Infantiles' },
+	{ id: 3, name: "Narrativas", route: '/category/Narrativas' },
 ];
 
 const App = () => {
@@ -24,12 +26,14 @@ const App = () => {
 					<NavBar categories={categorias} />
 					<Routes>
 						<Route path='/' element={<ItemListContainer greeting={saludo} />} />
-						<Route path='/categoria/:catId' element={<ItemListContainer greeting={saludo} />} />
-						<Route path='/productos/:prodId' element={<ItemDetailContainer />} />
+						<Route path='/category/:catId' element={<ItemListContainer greeting={saludo} />} />
+						<Route path='/products/:prodId' element={<ItemDetailContainer />} />
 						<Route path='/cart' element={<Cart />} />
 						<Route path='/checkout' element={<CartCheckOut />} />
+						<Route path='/order_status' element={<OrderStatus />} />
 					</Routes>
 				</CartProvider>
+				<Footer />
 			</BrowserRouter>
 		</>
 	);

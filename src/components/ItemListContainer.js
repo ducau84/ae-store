@@ -48,7 +48,7 @@ const ItemListContainer = ( { greeting } ) => {
 	return (
 		<>
 			<Greeter>
-				<h1>{greeting}</h1>
+				<h1>{catId || greeting}</h1>
 			</Greeter>
 			<BooksListContainer>
 				{

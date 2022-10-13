@@ -3,7 +3,6 @@
 	"author": "Martin Ducau <martin@ducau.ar> (https://github.com/ducau84)",
 	"version": "1.0.0",
 	"description": "e-commerce desarrollado con React",
-	"homepage": "https://github.com/ducau84/ae-store",
 	"private": true,
 	"dependencies": {
 		"@mui/icons-material": "^5.10.3",
