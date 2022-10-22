@@ -8,20 +8,20 @@ import { CartCounter } from "../styled/CartCounter";
 
 const CartWidget = () => {
 
-  const { totalItems } = useContext( CartContext );
+	const { totalItems } = useContext( CartContext );
 
-  return (
-    <Tooltip title="Ver Carrito de Compras">
-      <Link to={'/cart'}>
-        <IconButton sx={{ color: '#fff' }}>
-          <ShoppingCartTwoToneIcon fontSize="large" />
-          <CartCounter>
-            {totalItems() || ''}
-          </CartCounter>
-        </IconButton>
-      </Link>
-    </Tooltip>
-  );
+	return (
+		<Tooltip title="Ver Carrito de Compras">
+			<Link to={'/cart'}>
+				<IconButton sx={{ color: '#fff' }}>
+					<ShoppingCartTwoToneIcon fontSize="large" />
+					<CartCounter>
+						{totalItems() || ''}
+					</CartCounter>
+				</IconButton>
+			</Link>
+		</Tooltip>
+	);
 };
 
 export default CartWidget

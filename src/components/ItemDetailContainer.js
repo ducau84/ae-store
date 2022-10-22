@@ -9,53 +9,54 @@ import { db } from "../firebase/firebase.js";
 import { doc, getDoc, collection } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
-  const [ showProductDetail, setProductDetail ] = useState( {} );
-  const [ loadingProduct, setLoading ] = useState( true );
+	const [ showProductDetail, setProductDetail ] = useState( {} );
+	const [ loadingProduct, setLoading ] = useState( true );
 
-  let { prodId } = useParams();
+	let { prodId } = useParams();
 
-  useEffect( () => {
+	useEffect( () => {
 
-    const productCollection = collection( db, "products" );
-    const refDoc = doc( productCollection, prodId );
+		const productCollection = collection( db, "products" );
+		const refDoc = doc( productCollection, prodId );
 
-    const getItem = async () => {
-      
-      try {
-        const res = await getDoc( refDoc );
-        setProductDetail( {
-          id: res.id,
-          ...res.data(),
-        } );
-      }
-      catch ( err ) {
-        console.error( err );
-        toast.error( "Ocurrió un error cargando los datos desde el Servidor", {
-          theme: "colored" } );
-      }
-      finally {
-        setLoading( false );
-      }
-    };
+		const getItem = async () => {
 
-    getItem();
-    
-  }, [ prodId ] );
+			try {
+				const res = await getDoc( refDoc );
+				setProductDetail( {
+					id: res.id,
+					...res.data(),
+				} );
+			}
+			catch ( err ) {
+				console.error( err );
+				toast.error( "Ocurrió un error cargando los datos desde el Servidor", {
+					theme: "colored"
+				} );
+			}
+			finally {
+				setLoading( false );
+			}
+		};
 
-  return (
-    <>
-      <ProductContainer>
-        {
-          loadingProduct
-            ?
-            <FallingLines color="#32a3c8" width="300" visible={true} />
-            :
-            <ItemDetail product={showProductDetail} />
-        }
-      </ProductContainer>
-      <ToastContainer position="bottom-right" autoClose={2000} />
-    </>
-  );
+		getItem();
+
+	}, [ prodId ] );
+
+	return (
+		<>
+			<ProductContainer>
+				{
+					loadingProduct
+						?
+						<FallingLines color="#32a3c8" width="300" visible={true} />
+						:
+						<ItemDetail product={showProductDetail} />
+				}
+			</ProductContainer>
+			<ToastContainer position="bottom-right" autoClose={2000} />
+		</>
+	);
 };
 
 export default ItemDetailContainer;

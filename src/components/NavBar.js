@@ -9,20 +9,20 @@ import { Title } from "../styled/NavTitle";
 
 const NavBar = ( { categories } ) => {
 
-  return (
-    <Nav>
-      <LogoContainer>
-        <Link to={"/"}>
-          <img src={logo} alt="Logo" />
-        </Link>
-        <Link to={"/"}>
-          <Title>A.E. Store</Title>
-        </Link>
-      </LogoContainer>
-      <Burger categories={categories} />
-      <CartWidget />
-    </Nav>
-  );
+	return (
+		<Nav>
+			<LogoContainer>
+				<Link to={"/"}>
+					<img src={logo} alt="Logo" />
+				</Link>
+				<Link to={"/"}>
+					<Title>A.E. Store</Title>
+				</Link>
+			</LogoContainer>
+			<Burger categories={categories} />
+			<CartWidget />
+		</Nav>
+	);
 };
 
 export default NavBar;

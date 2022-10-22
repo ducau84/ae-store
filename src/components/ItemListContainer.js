@@ -10,59 +10,59 @@ import { Greeter } from "../styled/Greeter.js";
 
 const ItemListContainer = ( { greeting } ) => {
 
-  const [ showProductList, setProductList ] = useState( [] );
-  const [ loadingProducts, setLoading ] = useState( true );
+	const [ showProductList, setProductList ] = useState( [] );
+	const [ loadingProducts, setLoading ] = useState( true );
 
-  let { catId } = useParams();
+	let { catId } = useParams();
 
-  useEffect( () => {
-    
-    const productsCollection = collection( db, "products" );
-    const queryCat = query( productsCollection, where( "genre", "==", `${catId}` ) );
+	useEffect( () => {
 
-    const getItemList = async () => {
+		const productsCollection = collection( db, "products" );
+		const queryCat = query( productsCollection, where( "genre", "==", `${catId}` ) );
 
-      try {
-        const res = await getDocs( catId ? queryCat : productsCollection );
-        const data = res.docs.map( ( product ) => {
-          return {
-            ...product.data(),
-            id: product.id,
-          };
-        } );
-        setProductList( data );
-      }
-      catch ( err ) {
-        console.error( err );
-        toast.error( "Ocurrió un error cargando los datos desde el Servidor" );
-      }
-      finally {
-        setLoading( false );
-      }
-    };
+		const getItemList = async () => {
 
-    getItemList();
+			try {
+				const res = await getDocs( catId ? queryCat : productsCollection );
+				const data = res.docs.map( ( product ) => {
+					return {
+						...product.data(),
+						id: product.id,
+					};
+				} );
+				setProductList( data );
+			}
+			catch ( err ) {
+				console.error( err );
+				toast.error( "Ocurrió un error cargando los datos desde el Servidor" );
+			}
+			finally {
+				setLoading( false );
+			}
+		};
 
-  }, [ catId ] );
+		getItemList();
 
-  return (
-    <>
-      <Greeter>
-        <h1>{greeting}</h1>
-      </Greeter>
-      <BooksListContainer>
-        {
-          loadingProducts
-            ?
-            <FallingLines color="#e6077a" width="450" visible={true} />
-            :
-            <ItemList showProductList={showProductList} />
-        }
-      </BooksListContainer>
+	}, [ catId ] );
 
-      <ToastContainer />
-    </>
-  );
+	return (
+		<>
+			<Greeter>
+				<h1>{greeting}</h1>
+			</Greeter>
+			<BooksListContainer>
+				{
+					loadingProducts
+					?
+					<FallingLines color="#e6077a" width="450" visible={true} />
+					:
+					<ItemList showProductList={showProductList} />
+				}
+			</BooksListContainer>
+
+			<ToastContainer />
+		</>
+	);
 };
 
 export default ItemListContainer;

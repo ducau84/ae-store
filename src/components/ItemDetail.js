@@ -13,50 +13,51 @@ import { CartContext } from "../context/CartContext.js";
 
 const ItemDetail = ( { product } ) => {
 
-  const [ goToCartBtn, setGoToCartBtn ] = useState( false );
+	const [ goToCartBtn, setGoToCartBtn ] = useState( false );
 
-  const { addItem } = useContext( CartContext );
+	const { addItem } = useContext( CartContext );
 
-  const onAdd = ( cantidad ) => {
+	const onAdd = ( cantidad ) => {
 
-    addItem( product, cantidad );
-    setGoToCartBtn( true );
-    toast.success( `¡Agregaste: ${cantidad} ${product.title} al carrito!`, {
-      theme: "colored" } );
-  };
+		addItem( product, cantidad );
+		setGoToCartBtn( true );
+		toast.success( `¡Agregaste: ${cantidad} ${product.title} al carrito!`, {
+			theme: "colored"
+		} );
+	};
 
-  return (
-    <>
-      <ProductHeader>
-        <h1>{product.title}</h1>
-        <h3>Autor: {product.autor}</h3>
-      </ProductHeader>
-      <ProductDetailContainer>
-        <ProductCover>
-          <img src={product.img} alt="book cover" />
-          <h2>Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}</h2>
-        </ProductCover>
-        <ProductCounterContainer>
-          <h4>{product.desc}</h4>
-          {
-            goToCartBtn
-              ?
-              <Link to="/cart">
-                <Button color="normal"><ShoppingCartCheckoutTwoToneIcon /> Ir Al Carrito</Button>
-              </Link>
-              :
-              <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
-          }
-          <Link to="/">
-            <Button color="normal">
-              <ArrowBackTwoToneIcon />
-              Volver Al Listado
-            </Button>
-          </Link>
-        </ProductCounterContainer>
-      </ProductDetailContainer>
-    </>
-  );
+	return (
+		<>
+			<ProductHeader>
+				<h1>{product.title}</h1>
+				<h3>Autor: {product.autor}</h3>
+			</ProductHeader>
+			<ProductDetailContainer>
+				<ProductCover>
+					<img src={product.img} alt="book cover" />
+					<h2>Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}</h2>
+				</ProductCover>
+				<ProductCounterContainer>
+					<h4>{product.desc}</h4>
+					{
+						goToCartBtn
+						?
+						<Link to="/cart">
+							<Button color="normal"><ShoppingCartCheckoutTwoToneIcon /> Ir Al Carrito</Button>
+						</Link>
+						:
+						<ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
+					}
+					<Link to="/">
+						<Button color="normal">
+							<ArrowBackTwoToneIcon />
+							Volver Al Listado
+						</Button>
+					</Link>
+				</ProductCounterContainer>
+			</ProductDetailContainer>
+		</>
+	);
 };
 
 export default ItemDetail;

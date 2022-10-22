@@ -1,4 +1,4 @@
-# <center><font size="9">***"A.E. Store"***</font></center>
+## <center><font size="9">***"A.E. Store"***</font></center>
 >## **Descripción del Repositorio**:
 *Repositorio del Proyecto **"A.E. Store"**, para el curso de ***React***, Comisión **38.090** de **Coder House**.*
 
@@ -47,6 +47,9 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
   - Se creó el directorio *firebase* en */src/*, dentro del mismo se creó la **script** *firebase.js*, en el mismo se establecen las credenciales y se definen y exporta la base de datos.
   - En *ItemDetailContainer* e *ItemListContainer* se reemplazaron las funciones **async** que obtenian datos desde el *[mockup server](https://dashboard.heroku.com/apps/interactividades-server)* por otras que los obtienen desde Firebase](https://firebase.google.com/), utilizando las funciones especificas de la libreria. 
 
+
+### `10/10/2022`
+- Creación del **hook** personalizado *useLocalStorage* en */src/hooks/* el mismo establece mediante el uso de *LocalStorage*. Este fue importado en el *CartContext* para que el contenido del Carrito para ser accedido incluso al recargar el sitio.
 ### `05/10/2022`
 - En el módulo *Cart.js* se implementa un renderizado condicional, dependiendo de si el array *cart* está vació o no, en caso de estarlo (`cart.length === 0`), muestra un mensaje e ícono alertando que el carrito está vacío y un botón para volver al listado y seguir comprando. En caso de no estár vacío renderiza los ítems contenidos en el mismo mediante un **map** del *cart** para renderizarlo mediante el componente *CartItems.js* .
   - Creación del módulo *CartItems.js* en */src/components*, en el mismo se desectructura el **array** *cart* y se muestra el detalle de cada artículo en el mismo, y mediante la utlización del *CartContext* aplica las funciones *removeItem* para eliminar un ítem puntual del carrito y *clearCart* para vaciar el carrito.
