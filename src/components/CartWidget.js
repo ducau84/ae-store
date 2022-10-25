@@ -11,6 +11,7 @@ const CartWidget = () => {
 	const { totalItems } = useContext( CartContext );
 
 	return (
+		
 		<Tooltip title="Ver Carrito de Compras">
 			<Link to={'/cart'}>
 				<IconButton sx={{ color: '#fff' }}>

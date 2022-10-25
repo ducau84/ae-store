@@ -10,6 +10,7 @@ import { Title } from "../styled/NavTitle";
 const NavBar = ( { categories } ) => {
 
 	return (
+		
 		<Nav>
 			<LogoContainer>
 				<Link to={"/"}>

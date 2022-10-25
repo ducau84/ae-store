@@ -6,7 +6,9 @@ import Tooltip from "@mui/material/Tooltip";
 import { Foot } from "../styled/Footer";
 
 const Footer = () => {
+
 	return (
+		
 		<Foot>
 			<div>
 				<p>Martin O. Ducau &copy; 2022</p>
@@ -14,22 +16,14 @@ const Footer = () => {
 			<div>
 				<Tooltip title="Repositorio de GitHub">
 					<IconButton sx={{ color: "#fff" }}>
-						<a
-							href="https://github.com/ducau84"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<a href="https://github.com/ducau84" target="_blank" rel="noopener noreferrer">
 							<GitHubIcon fontSize="medium"/>
 						</a>
 					</IconButton>
 				</Tooltip>
 				<Tooltip title="Perfil de LinkedIn">
 					<IconButton sx={{ color: "#fff" }}>
-						<a
-							href="https://www.linkedin.com/in/martin-ducau/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<a href="https://www.linkedin.com/in/martin-ducau/"	target="_blank"	rel="noopener noreferrer">
 							<LinkedInIcon fontSize="medium"/>
 						</a>
 					</IconButton>

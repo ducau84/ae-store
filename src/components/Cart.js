@@ -15,6 +15,7 @@ const Cart = () => {
 	if ( cart.length === 0 ) {
 
 		return (
+			
 			<>
 				<CartContainer>
 					<h1>¡Tu Carrito Está Vacío!</h1>
@@ -27,6 +28,7 @@ const Cart = () => {
 		);
 	}
 	return (
+
 		<>
 			<CartContainer>
 				<h1>Mi Carrito:</h1>
@@ -40,7 +42,8 @@ const Cart = () => {
 				{
 					cart.map( ( item, index ) => (
 						<CartItems key={`${item.title}-${index}`} item={item} />
-					) )}
+					) )
+				}
 				<Link to="/">
 					<Button color="normal"> <ArrowBackTwoToneIcon />Seguir Comprando</Button>
 				</Link>

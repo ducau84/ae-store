@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import NavBar from "./components/NavBar.js";
 import ItemListContainer from "./components/ItemListContainer.js";
 import ItemDetailContainer from "./components/ItemDetailContainer.js";
@@ -35,6 +36,7 @@ const App = () => {
 				</CartProvider>
 				<Footer />
 			</BrowserRouter>
+			<ToastContainer position="bottom-right" autoClose={2000} />
 		</>
 	);
 };

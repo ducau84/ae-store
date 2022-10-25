@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail.js";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FallingLines } from "react-loader-spinner";
 import { ProductContainer } from "../styled/ProductContainer.js";
@@ -9,6 +9,7 @@ import { db } from "../firebase/firebase.js";
 import { doc, getDoc, collection } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
+	
 	const [ showProductDetail, setProductDetail ] = useState( {} );
 	const [ loadingProduct, setLoading ] = useState( true );
 
@@ -54,7 +55,6 @@ const ItemDetailContainer = () => {
 						<ItemDetail product={showProductDetail} />
 				}
 			</ProductContainer>
-			<ToastContainer position="bottom-right" autoClose={2000} />
 		</>
 	);
 };

@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext.js";
 import { db } from "../firebase/firebase.js";
-import {	addDoc, collection, doc, serverTimestamp, updateDoc } from "firebase/firestore";
+import { addDoc, collection, doc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { FallingLines } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone";
@@ -11,10 +11,15 @@ import { CheckOutContainer } from "../styled/CheckOutContainer.js";
 import CheckOutForm from "./CheckOutForm.js";
 
 const CartCheckOut = () => {
+
 	const [ uploadingOrder, setUlOrder ] = useState( false );
+
 	const [ orderPlaced, setOrderPlaced ] = useState( false );
+	
 	const [ orderId, setOrderId ] = useState();
+	
 	const { cart, clearCart, operPrice } = useContext( CartContext );
+	
 	const [ customerData, setCustomerData ] = useState( {
 		name: "",
 		email: "",
@@ -24,6 +29,7 @@ const CartCheckOut = () => {
 	} );
 
 	const handleChange = ( e ) => {
+
 		setCustomerData( {
 			...customerData,
 			[ e.target.name ]: e.target.value,
@@ -31,6 +37,7 @@ const CartCheckOut = () => {
 	};
 
 	const handleSubmit = ( e ) => {
+
 		e.preventDefault();
 		operPrice() === 0
 			? 
@@ -48,11 +55,13 @@ const CartCheckOut = () => {
 	};
 
 	const updateStock = ( product ) => {
+
 		const newStock = doc( db, "products", product.id );
 		updateDoc( newStock, { stock: product.stock - product.qty } );
 	};
 
 	const placeOrder = async () => {
+		
 		setUlOrder( true );
 
 		try {
@@ -75,10 +84,12 @@ const CartCheckOut = () => {
 			const salesCollection = collection( db, "store_sales" );
 			const newOrder = await addDoc( salesCollection, { orderData } );
 			setOrderId( newOrder.id );
-		} catch ( err ) {
+		} 
+		catch ( err ) {
 			console.error( err );
 			toast.error( "Ocurrió un error cargando los datos de la compra" );
-		} finally {
+		} 
+		finally {
 			setUlOrder( false );
 			setOrderPlaced( true );
 			cart.forEach( ( item ) => {
@@ -89,7 +100,9 @@ const CartCheckOut = () => {
 	};
 
 	if ( uploadingOrder ) {
+
 		return (
+
 			<CheckOutContainer>
 				<h1>Estamos Cargando tu compra!</h1>
 				<FallingLines color="#faf018" width="450" visible={true} />
@@ -98,7 +111,9 @@ const CartCheckOut = () => {
 	}
 
 	if ( orderPlaced ) {
+		
 		return (
+
 			<CheckOutContainer>
 				<h1>¡Muchas gracias por tu Compra!</h1>
 				<article>
@@ -121,6 +136,7 @@ const CartCheckOut = () => {
 	}
 
 	return (
+		
 		<CheckOutForm
 			handleSubmit={handleSubmit}
 			handleChange={handleChange}

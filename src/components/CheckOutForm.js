@@ -4,13 +4,14 @@ import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import { CartContext } from "../context/CartContext";
 import { CheckOutContainer } from "../styled/CheckOutContainer";
-import { ToastContainer } from "react-toastify";
 import { Button } from "../styled/Button";
 
 const CheckOutForm = ( { handleChange, handleSubmit, customerData } ) => {
+
 	const { operPrice } = useContext( CartContext );
 
 	return (
+
 		<CheckOutContainer>
 			<h1>Por favor ingresa tus datos:</h1>
 			<form onSubmit={handleSubmit}>
@@ -61,9 +62,7 @@ const CheckOutForm = ( { handleChange, handleSubmit, customerData } ) => {
 					value={customerData.payment}
 					required
 				>
-					<option disabled value="">
-						Selecciona una opción
-					</option>
+					<option disabled value="">Selecciona una opción</option>
 					<option value="transf">Transferencia Bancaria</option>
 					<option value="tarjcred">Tarjeta de Credito</option>
 					<option value="tarjdeb">Tarjeta de Debito</option>
@@ -78,7 +77,6 @@ const CheckOutForm = ( { handleChange, handleSubmit, customerData } ) => {
 					Volver Al Carrito <ShoppingCartTwoToneIcon />
 				</Button>
 			</Link>
-			<ToastContainer position="bottom-right" autoClose={2000} />
 		</CheckOutContainer>
 	);
 };

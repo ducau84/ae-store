@@ -10,6 +10,7 @@ const CartItems = ( { item } ) => {
 	const { removeItem } = useContext( CartContext );
 
 	return (
+		
 		<CartItemContainer>
 			<img src={item.img} alt="cover" />
 			<article>

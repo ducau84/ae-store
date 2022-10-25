@@ -3,7 +3,7 @@ import { db } from "../firebase/firebase.js";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList.js";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { FallingLines } from "react-loader-spinner";
 import { BooksListContainer } from "../styled/BooksListContainer.js";
 import { Greeter } from "../styled/Greeter.js";
@@ -59,8 +59,6 @@ const ItemListContainer = ( { greeting } ) => {
 					<ItemList showProductList={showProductList} />
 				}
 			</BooksListContainer>
-
-			<ToastContainer />
 		</>
 	);
 };
