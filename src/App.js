@@ -36,7 +36,7 @@ const App = () => {
 				</CartProvider>
 				<Footer />
 			</BrowserRouter>
-			<ToastContainer position="bottom-right" autoClose={2000} />
+			<ToastContainer position="bottom-right" autoClose={4500} />
 		</>
 	);
 };

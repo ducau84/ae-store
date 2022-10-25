@@ -42,11 +42,11 @@ const OrderStatus = () => {
 	const getOrders = async () => {
 
 		const salesCollection = collection( db, "store_sales" )
-		
+
 		const queryOrd = query(
 			salesCollection,
 			where( "orderData.customerInfo.email", "==", `${orderData.email}` ),
-			orderBy('orderData.date', 'desc')
+			orderBy( 'orderData.date', 'desc' )
 		);
 
 		try {
@@ -86,47 +86,44 @@ const OrderStatus = () => {
 	}
 
 	return (
-		
+
 		<>
 			<CheckOutContainer>
 				<h1>Verificar El Estado de mis órdenes</h1>
 				{
 					orderDetail.length === 0
-					?
-					<>
-						<p>
-							Desde aqui podrás verificar tus órdenes sólo completando la
-							dirección de e-mail que utilizaste al momento de realizarla
-						</p>
-						<form onSubmit={handleSubmit}>
-							<label htmlFor="email">Ingrese su e-mail:</label>
-							<input
-								type="email"
-								name="email"
-								placeholder="nombre@dominio.com"
-								onChange={handleChange}
-								value={orderData.email}
-								required
-							/>
-							<div>
-								<Button color="confirm" type="submit">
-									<SearchTwoToneIcon /> Verificar
-								</Button>
-								<Link to="/">
-									<Button color="normal">
-										<ArrowBackTwoToneIcon />{" "} Volver al Listado
+						?
+						<>
+							<p>Desde aqui podrás verificar tus órdenes, sólo completando la dirección de e-mail que utilizaste al momento de realizarla</p>
+							<form onSubmit={handleSubmit}>
+								<label htmlFor="email">Ingrese su e-mail:</label>
+								<div>
+									<input
+										type="email"
+										name="email"
+										placeholder="nombre@dominio.com"
+										onChange={handleChange}
+										value={orderData.email}
+										required
+									/>
+									<Button color="confirm" type="submit">
+										<SearchTwoToneIcon fontSize="small" /> Buscar
 									</Button>
-								</Link>
-							</div>
-						</form>
-					</>
-					:
-					<>
-						<p>A continuación se enumeran las distintas órdenes realizadas desde	el e-mail ingresado:</p>
-						{orderDetail.map( ( order, index ) => (
-							<OrderDet key={`${order.id}-${index}`} order={order} reload={reloadOrdersPage} />
-						) )}
-					</>
+								</div>
+							</form>
+							<Link to="/">
+								<Button color="normal">
+									<ArrowBackTwoToneIcon />{" "} Volver al Listado
+								</Button>
+							</Link>
+						</>
+						:
+						<>
+							<p>A continuación se enumeran las distintas órdenes realizadas desde	el e-mail ingresado:</p>
+							{orderDetail.map( ( order, index ) => (
+								<OrderDet key={`${order.id}-${index}`} order={order} reload={reloadOrdersPage} />
+							) )}
+						</>
 				}
 			</CheckOutContainer>
 		</>

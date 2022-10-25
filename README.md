@@ -1,4 +1,4 @@
-## <center><font size="9">***"A.E. Store"***</font></center>
+## <h1 align="center"><font size="9">***"A.E. Store"***</font></h1>
 >## **Descripción del Repositorio**:
 *Repositorio del Proyecto **"A.E. Store"**, para el curso de ***React***, Comisión **38.090** de **Coder House**.*
 
@@ -39,6 +39,9 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 ---
 >## Historial de Modificaciones:
 
+### `25/10/2022`
+- En el componente *CartCheckOut* agrego una nueva función *checStock* que itera el carrito por el **id** de cada item y lo comprara con su contraparte en la **collection** en **Firebase**, en caso de que el stock de la **db** sea mayor al agregado en el carrito, prosigue con el proceso de generación de la orden y caso contrario muestra un **toast** con un mensaje alertando al usuario el o los artículos que poseen un stock menor al solicitado. 
+
 ### `24/10/2022`
 - Se crearon dos nuevos componentes *OrderStatus* y *OrderDet*:
   - En *OrderStatus* se permite consultar el estado de las ordenes realizadas desde un correo electónico específico, para la misma se realiza un **query** a **Firebase** de la **collection** *store_sales*, buscando las entradas que contengan ese dato, en caso de no haber realizado ninguna, muestra un **toast** con un mensaje de alerta, y si encuentra una o varias órdenes las renderiza mendiante un **map** del array obtenido como **prop** en *OrderDet*.
@@ -48,6 +51,7 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 >### `13/10/2022`
 - Se crearon dos nuevos componentes: *CartCheckOut* y *CartCheckOutForm*:
   - En *CartCheckOut* se crea la lógica para darle el cierre a la compra mediante una función **async** que se encarga de recopilar los datos del usuario cargados en *CartCheckOutForm* y los datos del Carrito desde *CartContext* y genera tanto una orden de compra que se envia a la base de datos de [Firebase](https://firebase.google.com/) y actualiza el stock descontando los artículos comprados.
+  
 >### `06/10/2022` 
 - Configuración e implementación en el proyecto de una base de datos creada en [Firebase](https://firebase.google.com/).
   - Se creó el directorio *firebase* en */src/*, dentro del mismo se creó la **script** *firebase.js*, en el mismo se establecen las credenciales y se definen y exporta la base de datos.

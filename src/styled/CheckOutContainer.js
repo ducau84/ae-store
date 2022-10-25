@@ -65,7 +65,7 @@ export const CheckOutContainer = styled.section`
 
     input,
     select {
-      margin: 1rem;
+      margin: 1rem 0;
       padding: 0.5rem;
       border: black 0.2rem solid;
       border-radius: 15px;
@@ -85,13 +85,13 @@ export const CheckOutContainer = styled.section`
     }
     div {
       display: flex;
-      flex-flow: column nowrap;
+      flex-flow: row nowrap;
       justify-content: center;
       align-items: center;
       button {
         max-width: 100%;
-        font-size: 1rem
+        font-size: 0.9rem
       }
     }
   }
-`;
+`
