@@ -6,9 +6,7 @@ import { OrdersContainer } from "../styled/OrdersContainer";
 import { ArrowBackTwoTone } from "@mui/icons-material";
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 
-const OrderDet = ( { order } ) => {
-
-	const reloadPage = () => { window.location.reload() };
+const OrderDet = ( { order, reload } ) => {
 
 	return (
 		<OrdersContainer>
@@ -57,16 +55,16 @@ const OrderDet = ( { order } ) => {
 				</tbody>
 			</Orders>
 			<div>
-			<Button color="confirm" onClick={reloadPage}>
-				<SearchTwoToneIcon />
-				Otra Consulta
-			</Button>
-			<Link to="/">
-				<Button color="normal">
-					<ArrowBackTwoTone />
-					Volver Al Listado
+				<Button color="confirm" onClick={reload}>
+					<SearchTwoToneIcon />
+					Otra Consulta
 				</Button>
-			</Link>
+				<Link to="/">
+					<Button color="normal">
+						<ArrowBackTwoTone />
+						Volver Al Listado
+					</Button>
+				</Link>
 			</div>
 		</OrdersContainer>
 

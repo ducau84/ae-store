@@ -12,6 +12,7 @@ import { FallingLines } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 
 const OrderStatus = () => {
+
 	const [ orderData, setOrderData ] = useState( {
 		email: "",
 	} );
@@ -29,6 +30,10 @@ const OrderStatus = () => {
 	const handleSubmit = ( e ) => {
 		e.preventDefault();
 		getOrders();
+	};
+
+	const reloadPage = () => { 
+		setOrderDetail([]); 
 	};
 
 	const getOrders = async () => {
@@ -111,7 +116,7 @@ const OrderStatus = () => {
 						<>
 							<p>A continuación se enumeran las distintas órdenes realizadas desde	el e-mail ingresado:</p>
 							{orderDetail.map( ( order, index ) => (
-								<OrderDet key={`${order.id}-${index}`} order={order} />
+								<OrderDet key={`${order.id}-${index}`} order={order} reload={reloadPage}/>
 							) )}
 						</>
 				}
