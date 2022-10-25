@@ -93,6 +93,7 @@ const CartCheckOut = () => {
 			setUlOrder( false );
 			setOrderPlaced( true );
 			cart.forEach( ( item ) => {
+
 				updateStock( item );
 			} );
 			clearCart();

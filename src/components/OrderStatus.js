@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CheckOutContainer } from "../styled/CheckOutContainer";
 import { Button } from "../styled/Button";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { db } from "../firebase/firebase.js";
 import { toast } from "react-toastify";
 import OrderDet from "./OrderDet";
@@ -41,10 +41,12 @@ const OrderStatus = () => {
 
 	const getOrders = async () => {
 
-		const salesCollection = collection( db, "store_sales" );
+		const salesCollection = collection( db, "store_sales" )
+		
 		const queryOrd = query(
 			salesCollection,
-			where( "orderData.customerInfo.email", "==", `${orderData.email}` )
+			where( "orderData.customerInfo.email", "==", `${orderData.email}` ),
+			orderBy('orderData.date', 'desc')
 		);
 
 		try {

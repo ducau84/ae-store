@@ -26,6 +26,7 @@ const ItemDetail = ( { product } ) => {
 		} );
 	};
 
+
 	return (
 		<>
 			<ProductHeader>
@@ -41,12 +42,12 @@ const ItemDetail = ( { product } ) => {
 					<h4>{product.desc}</h4>
 					{
 						goToCartBtn
-						?
-						<Link to="/cart">
-							<Button color="confirm"><ShoppingCartCheckoutTwoToneIcon /> Ir Al Carrito</Button>
-						</Link>
-						:
-						<ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
+							?
+							<Link to="/cart">
+								<Button color="confirm"><ShoppingCartCheckoutTwoToneIcon /> Ir Al Carrito</Button>
+							</Link>
+							:
+							<ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
 					}
 					<Link to="/">
 						<Button color="normal">

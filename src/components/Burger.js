@@ -15,7 +15,7 @@ const Burger = ( { categories } ) => {
 				<div />
 				<div />
 			</StyledBurger>
-			<LeftNav open={open} categories={categories} />
+			<LeftNav open={open} setOpen={setOpen} categories={categories} />
 		</>
 	);
 };
