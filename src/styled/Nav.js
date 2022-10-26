@@ -17,5 +17,10 @@ export const Nav = styled.nav`
     padding: 20px;
     font-size: 70%;
   }
+  @media (max-width: 768px) {
+    justify-content: space-around;
+    padding: 20px;
+    font-size: 100%;
+  }
 
 `
