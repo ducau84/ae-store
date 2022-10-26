@@ -81,6 +81,9 @@ export const CheckOutContainer = styled.section`
     button {
       align-self: center;
       max-width: 70%;
+      svg {
+        width: 10%;
+      }
     }
     h4 {
       max-width: 100%;
@@ -93,7 +96,7 @@ export const CheckOutContainer = styled.section`
       align-items: center;
       button {
         max-width: 100%;
-        font-size: 0.9rem
+        font-size: 0.8rem;
       }
     }
   }

@@ -36,8 +36,11 @@ export const CartContainer = styled.div`
    {
    button {
     flex-flow: row nowrap;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     width: auto;
+    svg {
+      width: 20%;
+    }
    }
    h2 {
     padding: 0.8rem;

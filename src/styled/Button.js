@@ -14,6 +14,7 @@ const hoverColorType = {
 
 export const Button = styled.button`
 display: flex;
+flex-flow: row nowrap;
 align-items: center;
 margin: 5px;
 padding: 8px;
@@ -34,9 +35,12 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3)
 transition: 800ms ease;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
    {
     flex-flow: wrap;
+    svg{
+      width: 11%;
+    }
   }
 }
 `

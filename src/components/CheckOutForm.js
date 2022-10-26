@@ -69,7 +69,7 @@ const CheckOutForm = ( { handleChange, handleSubmit, customerData } ) => {
 					<option value="rapipago">Rapipago / Pago Fácil</option>
 				</select>
 				<Button type="submit" color="confirm">
-					Confirmar Compra <CheckTwoToneIcon />
+					Confirmar Compra<CheckTwoToneIcon />
 				</Button>
 			</form>
 			<Link to="/cart">

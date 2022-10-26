@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext.js";
 import { db } from "../firebase/firebase.js";
-import { addDoc, collection, doc, documentId, getDocs, serverTimestamp,	updateDoc, where, } from "firebase/firestore";
+import { addDoc, collection, doc, documentId, getDocs, serverTimestamp, updateDoc, where, } from "firebase/firestore";
 import { FallingLines } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone";
@@ -116,8 +116,10 @@ const CartCheckOut = () => {
 	if ( uploadingOrder ) {
 		return (
 			<CheckOutContainer>
-				<h1>Estamos Cargando tu compra!</h1>
-				<FallingLines color="#faf018" width="450" visible={true} />
+				<div>
+					<h1>Estamos Cargando tu compra!</h1>
+					<FallingLines color="#faf018" width="450" visible={true} />
+				</div>
 			</CheckOutContainer>
 		);
 	}
@@ -141,7 +143,7 @@ const CartCheckOut = () => {
 	}
 
 	return (
-		<CheckOutForm handleSubmit={handleSubmit} handleChange={handleChange} customerData={customerData}/>
+		<CheckOutForm handleSubmit={handleSubmit} handleChange={handleChange} customerData={customerData} />
 	);
 };
 

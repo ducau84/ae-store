@@ -79,8 +79,10 @@ const OrderStatus = () => {
 		return (
 
 			<CheckOutContainer>
-				<h1>¡Estamos Buscando tus órdenes!</h1>
-				<FallingLines color="#047307" width="320" visible={true} />
+				<div>
+					<h1>¡Estamos Buscando tus órdenes!</h1>
+					<FallingLines color="#047307" width="320" visible={true} />
+				</div>
 			</CheckOutContainer>
 		);
 	}
@@ -113,7 +115,7 @@ const OrderStatus = () => {
 							</form>
 							<Link to="/">
 								<Button color="normal">
-									<ArrowBackTwoToneIcon />{" "} Volver al Listado
+									<ArrowBackTwoToneIcon />Volver al Listado
 								</Button>
 							</Link>
 						</>
