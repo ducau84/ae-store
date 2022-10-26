@@ -4,15 +4,18 @@ export const CheckOutContainer = styled.section`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 1rem auto;
-  padding: 20px;
+  padding: 2rem;
   border-radius: 15px;
-  max-width: 1200px;
-  min-height: 50vh;
+  min-height: 55vh;
+  max-width: 1200px; 
   font-family: Fredoka One;
   background-color: #ffffff87;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  @media (max-width: 768px) {
+      margin: 1rem;
+    }
   article {
     line-height: 3rem;
   }

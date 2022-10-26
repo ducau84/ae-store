@@ -6,7 +6,7 @@ export const Menu = styled.ul`
   flex-flow: row nowrap;
   align-items: center;
   li {
-    padding: 10px;
+    padding: 1rem 0.5rem;
   }
 
   a {

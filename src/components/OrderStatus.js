@@ -94,7 +94,7 @@ const OrderStatus = () => {
 					orderDetail.length === 0
 						?
 						<>
-							<p>Desde aqui podrás verificar tus órdenes, sólo completando la dirección de e-mail que utilizaste al momento de realizarla</p>
+							<p>Desde aqui podrás verificar tus órdenes, sólo completando la dirección de e-mail que utilizaste al momento de realizarla, las mismas se mostrarán ordenadas por fecha de forma descendente.</p>
 							<form onSubmit={handleSubmit}>
 								<label htmlFor="email">Ingrese su e-mail:</label>
 								<div>

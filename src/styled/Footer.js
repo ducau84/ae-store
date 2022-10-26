@@ -8,8 +8,8 @@ export const Foot = styled.footer`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: space-around;
-  padding: 5px;
+  justify-content: space-between;
+  padding: 2rem 16rem;
   margin: 0px;
   background-color: #0d2538;
   color: white;
@@ -25,5 +25,9 @@ export const Foot = styled.footer`
     &:hover {
       color: #ec0f7d;
     }
+  }
+  @media (max-width: 1500px) {
+    justify-content: space-around;
+    padding: 5px;
   }
 `

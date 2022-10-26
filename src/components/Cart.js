@@ -39,14 +39,14 @@ const Cart = () => {
 						<Button color="confirm"> <ShoppingCartCheckoutTwoTone /> Finalizar Compra </Button>
 					</Link>
 				</div>
+				<Link to="/">
+					<Button color="normal"> <ArrowBackTwoToneIcon />Seguir Comprando</Button>
+				</Link>
 				{
 					cart.map( ( item, index ) => (
 						<CartItems key={`${item.title}-${index}`} item={item} />
 					) )
 				}
-				<Link to="/">
-					<Button color="normal"> <ArrowBackTwoToneIcon />Seguir Comprando</Button>
-				</Link>
 			</CartContainer>
 		</>
 	);
