@@ -1,22 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Button } from "../styled/Button";
 import { Orders } from "../styled/Orders";
 import { OrdersContainer } from "../styled/OrdersContainer";
-import { ArrowBackTwoTone } from "@mui/icons-material";
-import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 
-const OrderDet = ( { order, reload } ) => {
+const OrderDet = ( { order, id } ) => {
 
 	return (
-		
+
 		<OrdersContainer>
 			<Orders>
-				<caption>Detalle de tu Orden: {order.id}</caption>
+				<caption>Detalle de tu Orden: {id}</caption>
 				<tbody>
 					<tr>
 						<td colSpan="3">
-							Fecha: {order.orderData.date.toDate().toLocaleString( "es-AR" )}
+							Fecha: {new Date().toLocaleString() || order.date.toDate().toLocaleString( "es-AR" )}
 						</td>
 					</tr>
 					<tr>
@@ -24,7 +20,7 @@ const OrderDet = ( { order, reload } ) => {
 						<th>Cantidad:</th>
 						<th>Precio:</th>
 					</tr>
-					{order.orderData.items.map( ( item, index ) => {
+					{order.items.map( ( item, index ) => {
 						return (
 							<tr key={`${item}-${index}`}>
 								<td key={`${item.title}-${index}`}>{item.title}</td>
@@ -35,33 +31,15 @@ const OrderDet = ( { order, reload } ) => {
 					} )}
 					<tr>
 						<td colSpan="3">
-							{" "}
-							Total:{" "}
-							{new Intl.NumberFormat( "es-AR", {
-								style: "currency",
-								currency: "ARS",
-							} ).format( order.orderData.total )}
+							Total: {new Intl.NumberFormat( "es-AR", { style: "currency",	currency: "ARS" } ).format( order.total )}
 						</td>
 					</tr>
 					<tr>
-						<td colSpan="3">Estado: {order.orderData.status || "En Proceso"}</td>
+						<td colSpan="3">Estado: {order.status || "En Proceso"}</td>
 					</tr>
 				</tbody>
 			</Orders>
-			<div>
-				<Button color="confirm" onClick={reload}>
-					<SearchTwoToneIcon />
-					Otra Consulta
-				</Button>
-				<Link to="/">
-					<Button color="normal">
-						<ArrowBackTwoTone />
-						Volver Al Listado
-					</Button>
-				</Link>
-			</div>
 		</OrdersContainer>
-
 	);
 };
 

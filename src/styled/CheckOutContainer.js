@@ -9,13 +9,13 @@ export const CheckOutContainer = styled.section`
   padding: 2rem;
   border-radius: 15px;
   min-height: 55vh;
-  max-width: 1200px; 
+  max-width: 1200px;
   font-family: Fredoka One;
   background-color: #ffffff87;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   @media (max-width: 768px) {
-      margin: 1rem;
-    }
+    margin: 1rem;
+  }
   article {
     line-height: 3rem;
   }
@@ -54,6 +54,7 @@ export const CheckOutContainer = styled.section`
     text-shadow: 1px 1px 1px #ffff;
     text-transform: none;
   }
+  
   form {
     margin-top: 2rem;
     display: flex;
@@ -97,4 +98,4 @@ export const CheckOutContainer = styled.section`
       }
     }
   }
-`
+`;

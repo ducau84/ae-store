@@ -43,6 +43,16 @@ const CartCheckOut = () => {
 				: checkStock( cart );
 	};
 
+	const orderDetail = {
+		items: cart.map( ( item ) => ( {
+			title: item.title,
+			price: item.price,
+			qty: item.qty,
+			id: item.id
+		} ) ),
+		total: operPrice(),
+	}
+
 	const checkStock = async ( cart ) => {
 		const ids = cart.map( ( item ) => item.id );
 		const prodCollection = collection( db, "products" );
@@ -87,14 +97,8 @@ const CartCheckOut = () => {
 					email: customerData.email,
 					phone: customerData.phone,
 					payment: customerData.payment,
-				},
-				items: cart.map( ( item ) => ( {
-					id: item.id,
-					title: item.title,
-					price: item.price,
-					qty: item.qty,
-				} ) ),
-				total: operPrice(),
+				}, 
+				...orderDetail,
 				date: serverTimestamp(),
 			};
 			const salesCollection = collection( db, "store_sales" );
@@ -134,8 +138,7 @@ const CartCheckOut = () => {
 				</article>
 				<Link to="/">
 					<Button color="normal">
-						{" "}
-						<ArrowBackTwoToneIcon /> Volver al Listado{" "}
+						<ArrowBackTwoToneIcon /> Volver al Listado
 					</Button>
 				</Link>
 			</CheckOutContainer>
@@ -143,7 +146,7 @@ const CartCheckOut = () => {
 	}
 
 	return (
-		<CheckOutForm handleSubmit={handleSubmit} handleChange={handleChange} customerData={customerData} />
+		<CheckOutForm handleSubmit={handleSubmit} handleChange={handleChange} customerData={customerData} order={orderDetail} />
 	);
 };
 

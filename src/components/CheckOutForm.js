@@ -4,9 +4,10 @@ import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import { CartContext } from "../context/CartContext";
 import { CheckOutContainer } from "../styled/CheckOutContainer";
+import OrderDet from "./OrderDet.js";
 import { Button } from "../styled/Button";
 
-const CheckOutForm = ( { handleChange, handleSubmit, customerData } ) => {
+const CheckOutForm = ( { handleChange, handleSubmit, customerData, order } ) => {
 
 	const { operPrice } = useContext( CartContext );
 
@@ -52,8 +53,9 @@ const CheckOutForm = ( { handleChange, handleSubmit, customerData } ) => {
 					value={customerData.phone}
 					required
 				/>
+				<OrderDet order={order}/>
 				<h4>
-					Total a abonar:{" "} {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS", } ).format( operPrice() )}
+					Total:{new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS", } ).format( operPrice() )}
 				</h4>
 				<label htmlFor="payment">Forma de pago:</label>
 				<select

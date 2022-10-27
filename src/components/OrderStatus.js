@@ -9,6 +9,8 @@ import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
 import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone";
 import { FallingLines } from "react-loader-spinner";
 import { Link } from "react-router-dom";
+import { ArrowBackTwoTone } from "@mui/icons-material";
+import { OrdersDet } from "../styled/Orders";
 
 const OrderStatus = () => {
 
@@ -62,7 +64,7 @@ const OrderStatus = () => {
 				? toast.warning(
 					"No se encontró ninguna orden realizada desde esta dirección de e-mail", { theme: "colored" }
 				)
-				: setOrderDetail( data );
+				: setOrderDetail( data ); console.log( data )
 		}
 		catch ( err ) {
 			console.error( err );
@@ -120,12 +122,24 @@ const OrderStatus = () => {
 							</Link>
 						</>
 						:
-						<>
+						<OrdersDet>
 							<p>A continuación se enumeran las distintas órdenes realizadas desde	el e-mail ingresado:</p>
+							<div>
+								<Button color="confirm" onClick={() => reloadOrdersPage()}>
+									<SearchTwoToneIcon />
+									Otra Consulta
+								</Button>
+								<Link to="/">
+									<Button color="normal">
+										<ArrowBackTwoTone />
+										Volver Al Listado
+									</Button>
+								</Link>
+							</div>
 							{orderDetail.map( ( order, index ) => (
-								<OrderDet key={`${order.id}-${index}`} order={order} reload={reloadOrdersPage} />
+								<OrderDet key={`${order.id}-${index}`} order={order.orderData} id={order.id} />
 							) )}
-						</>
+						</OrdersDet>
 				}
 			</CheckOutContainer>
 		</>
