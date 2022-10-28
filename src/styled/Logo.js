@@ -13,8 +13,11 @@ export const LogoContainer = styled.div`
   img {
     max-width: 80px;
     height: auto;
+    @media (max-width: 900px) {
+      max-width: 45px;
+    }
     @media (max-width: 768px) {
-      max-width: 65px;
+      max-width: 55px;
     }
   }
 `

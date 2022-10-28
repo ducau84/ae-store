@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import NavBar from "./components/NavBar.js";
+import Cart from "./components/Cart.js";
+import CartCheckOut from "./components/CartCheckOut.js";
+import CartProvider from "../src/context/CartContext.js"
 import ItemListContainer from "./components/ItemListContainer.js";
 import ItemDetailContainer from "./components/ItemDetailContainer.js";
-import Cart from "./components/Cart.js";
-import CartProvider from "../src/context/CartContext.js"
-import CartCheckOut from "./components/CartCheckOut.js";
 import Footer from "./components/Footer.js";
+import NavBar from "./components/NavBar.js";
 import OrderStatus from "./components/OrderStatus.js";
 
 const saludo = "¡Bienvenido a nuestra tienda!";

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const ProductDetailContainer = styled.div`
   display: flex;
@@ -9,4 +9,4 @@ export const ProductDetailContainer = styled.div`
       flex-flow: wrap;
     }
   }
- `
+`

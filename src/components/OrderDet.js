@@ -10,11 +10,16 @@ const OrderDet = ( { order, id } ) => {
 			<Orders>
 				<caption>Detalle de tu Orden: {id}</caption>
 				<tbody>
-					<tr>
-						<td colSpan="3">
-							Fecha: {new Date().toLocaleString() || order.date.toDate().toLocaleString( "es-AR" )}
-						</td>
-					</tr>
+					{order.date
+						?
+						<tr>
+							<td colSpan="3">
+								Fecha: {order.date.toDate().toLocaleString( "es-AR" )}
+							</td>
+						</tr>
+						:
+						""
+					}
 					<tr>
 						<th>Productos:</th>
 						<th>Cantidad:</th>
@@ -29,14 +34,21 @@ const OrderDet = ( { order, id } ) => {
 							</tr>
 						);
 					} )}
-					<tr>
-						<td colSpan="3">
-							Total: {new Intl.NumberFormat( "es-AR", { style: "currency",	currency: "ARS" } ).format( order.total )}
-						</td>
-					</tr>
-					<tr>
-						<td colSpan="3">Estado: {order.status || "En Proceso"}</td>
-					</tr>
+					{order.total
+						?
+						<>
+							<tr>
+								<td colSpan="3">
+									Total: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( order.total )}
+								</td>
+							</tr>
+							<tr>
+								<td colSpan="3">Estado: {order.status || "En Proceso"}</td>
+							</tr>
+						</>
+						:
+						""
+					}
 				</tbody>
 			</Orders>
 		</OrdersContainer>

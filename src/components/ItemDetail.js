@@ -1,8 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount.js";
-import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone";
-import ShoppingCartCheckoutTwoToneIcon from "@mui/icons-material/ShoppingCartCheckoutTwoTone";
+import { ArrowBackTwoTone, ShoppingCartCheckoutTwoTone } from "@mui/icons-material";
 import { toast } from "react-toastify";
 import { Button } from "../styled/Button.js";
 import { ProductHeader } from "../styled/ProductHeader.js";
@@ -22,7 +21,7 @@ const ItemDetail = ( { product } ) => {
 		addItem( product, cantidad );
 		setGoToCartBtn( true );
 		toast.success( `¡Agregaste: ${cantidad} ${product.title} al carrito!`, {
-			theme: "colored"
+			theme: "dark"
 		} );
 	};
 
@@ -44,15 +43,16 @@ const ItemDetail = ( { product } ) => {
 						goToCartBtn
 							?
 							<Link to="/cart">
-								<Button color="confirm"><ShoppingCartCheckoutTwoToneIcon /> Ir Al Carrito</Button>
+								<Button color="confirm">
+									<ShoppingCartCheckoutTwoTone />Ir Al Carrito
+								</Button>
 							</Link>
 							:
 							<ItemCount initial={1} stock={product.stock} onAdd={onAdd} />
 					}
 					<Link to="/">
 						<Button color="normal">
-							<ArrowBackTwoToneIcon />
-							Volver Al Listado
+							<ArrowBackTwoTone />Volver Al Listado
 						</Button>
 					</Link>
 				</ProductCounterContainer>

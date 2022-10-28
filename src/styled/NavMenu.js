@@ -28,7 +28,7 @@ export const Menu = styled.ul`
     align-items: baseline;
     background-color: #0d2538c9;
     position: fixed;
-    transform: ${({open}) => (open ? "translateX(0)" : "translateX(-100%)")};
+    transform: ${( { open } ) => ( open ? "translateX(0)" : "translateX(-100%)" )};
     top: 0;
     left: 0;
     height: auto;

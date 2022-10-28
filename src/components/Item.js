@@ -13,7 +13,9 @@ const Item = ( { product } ) => {
 				<img src={product.img} alt="book cover" />
 				<h4>Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( product.price )}</h4>
 				<Link to={`/products/${product.id}`}>
-					<ButtonDetails>Ver Detalle</ButtonDetails>
+					<ButtonDetails>
+						Ver Detalle
+					</ButtonDetails>
 				</Link>
 			</BookContainer>
 		</>

@@ -13,11 +13,12 @@ export const Foot = styled.footer`
   margin: 0px;
   background-color: #0d2538;
   color: white;
-  font-family: "Trebuchet MS","Lucida Sans Unicode","Lucida Grande", "Lucida Sans",Arial,sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-weight: 800;
   font-size: 0.8rem;
   text-transform: uppercase;
-  box-shadow: -1px -8px 32px -4px rgba(0,0,0,0.56);
+  box-shadow: -1px -8px 32px -4px rgba(0, 0, 0, 0.56);
   a {
     color: #fff;
     display: flex;

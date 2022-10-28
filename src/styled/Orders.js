@@ -11,7 +11,7 @@ export const OrdersDet = styled.div`
     display: flex;
     flex-flow: row nowrap;
   }
-`
+`;
 
 export const Orders = styled.table`
   width: 320px;

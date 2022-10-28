@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
-import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone";
-import ProductionQuantityLimitsTwoToneIcon from '@mui/icons-material/ProductionQuantityLimitsTwoTone';
-import { RemoveShoppingCartTwoTone, ShoppingCartCheckoutTwoTone } from "@mui/icons-material";
+import { ArrowBackTwoTone, ProductionQuantityLimitsTwoTone, RemoveShoppingCartTwoTone, ShoppingCartCheckoutTwoTone } from "@mui/icons-material";
 import CartItems from "./CartItems";
 import { CartContainer } from "../styled/CartContainer";
 import { Button } from "../styled/Button";
@@ -15,13 +13,13 @@ const Cart = () => {
 	if ( cart.length === 0 ) {
 
 		return (
-			
+
 			<>
 				<CartContainer>
 					<h1>¡Tu Carrito Está Vacío!</h1>
-					<ProductionQuantityLimitsTwoToneIcon sx={{ fontSize: 250, color: '#eb077c' }} />
+					<ProductionQuantityLimitsTwoTone sx={{ fontSize: 250, color: '#eb077c' }} />
 					<Link to="/">
-						<Button color="normal"><ArrowBackTwoToneIcon /> Volver Al Listado</Button>
+						<Button color="normal"><ArrowBackTwoTone /> Volver Al Listado</Button>
 					</Link>
 				</CartContainer>
 			</>
@@ -33,14 +31,20 @@ const Cart = () => {
 			<CartContainer>
 				<h1>Mi Carrito:</h1>
 				<div>
-					<Button color="delete" onClick={() => clearCart()}> <RemoveShoppingCartTwoTone /> Vaciar el Carrito </Button>
+					<Button color="delete" onClick={() => clearCart()}>
+						<RemoveShoppingCartTwoTone /> Vaciar el Carrito
+					</Button>
 					<h2>Total: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( operPrice() )}</h2>
 					<Link to={'/checkout'}>
-						<Button color="confirm"> <ShoppingCartCheckoutTwoTone /> Finalizar Compra </Button>
+						<Button color="confirm">
+							<ShoppingCartCheckoutTwoTone />Finalizar Compra
+						</Button>
 					</Link>
 				</div>
 				<Link to="/">
-					<Button color="normal"> <ArrowBackTwoToneIcon />Seguir Comprando</Button>
+					<Button color="normal">
+						<ArrowBackTwoTone />Seguir Comprando
+					</Button>
 				</Link>
 				{
 					cart.map( ( item, index ) => (

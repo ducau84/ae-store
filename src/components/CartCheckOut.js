@@ -11,10 +11,15 @@ import { CheckOutContainer } from "../styled/CheckOutContainer.js";
 import CheckOutForm from "./CheckOutForm.js";
 
 const CartCheckOut = () => {
+
 	const [ uploadingOrder, setUlOrder ] = useState( false );
+
 	const [ orderPlaced, setOrderPlaced ] = useState( false );
+
 	const [ orderId, setOrderId ] = useState();
+
 	const { cart, clearCart, operPrice } = useContext( CartContext );
+
 	const [ customerData, setCustomerData ] = useState( {
 		name: "",
 		email: "",
@@ -50,8 +55,7 @@ const CartCheckOut = () => {
 			qty: item.qty,
 			id: item.id
 		} ) ),
-		total: operPrice(),
-	}
+	};
 
 	const checkStock = async ( cart ) => {
 		const ids = cart.map( ( item ) => item.id );
@@ -60,6 +64,7 @@ const CartCheckOut = () => {
 			prodCollection,
 			where( documentId(), "in", ids )
 		);
+
 		const soldOutProducts = [];
 
 		dbProducts.forEach( ( product ) => {
@@ -88,6 +93,7 @@ const CartCheckOut = () => {
 	};
 
 	const placeOrder = async () => {
+
 		setUlOrder( true );
 
 		try {
@@ -97,16 +103,21 @@ const CartCheckOut = () => {
 					email: customerData.email,
 					phone: customerData.phone,
 					payment: customerData.payment,
-				}, 
+				},
 				...orderDetail,
+				total: operPrice(),
 				date: serverTimestamp(),
 			};
+		
 			const salesCollection = collection( db, "store_sales" );
 			const newOrder = await addDoc( salesCollection, { orderData } );
+
 			setOrderId( newOrder.id );
+
 		} catch ( err ) {
 			console.error( err );
 			toast.error( "Ocurrió un error cargando los datos de la compra" );
+			
 		} finally {
 			setUlOrder( false );
 			setOrderPlaced( true );
@@ -126,7 +137,7 @@ const CartCheckOut = () => {
 				</div>
 			</CheckOutContainer>
 		);
-	}
+	};
 
 	if ( orderPlaced ) {
 		return (
@@ -143,7 +154,7 @@ const CartCheckOut = () => {
 				</Link>
 			</CheckOutContainer>
 		);
-	}
+	};
 
 	return (
 		<CheckOutForm handleSubmit={handleSubmit} handleChange={handleChange} customerData={customerData} order={orderDetail} />

@@ -39,6 +39,9 @@ El objetivo del mismo es realizar un *e-commerce* con tematíca a elección, en 
 ---
 >## Historial de Modificaciones:
 
+### `28/10/2022`
+- Se modifico el componente *OrderDet* con renderizados condicionales mediante un operador ternario para poder ser utilizado tanto en el componente *CartCheckOut* donde sólo muestra el detalle, cantidad y precio de los productos que fueron agregados al carrito, manteniendo tambien la funcionalidad cuando es llamado desde el componente *OrderStatus* donde también muestra la fecha y hora donde fue realizado el pedido y el **id** de la orden, junto con el total de la misma y el estado de procesamiento.
+
 ### `25/10/2022`
 - En el componente *CartCheckOut* agrego una nueva función *checStock* que itera el carrito por el **id** de cada item y lo comprara con su contraparte en la **collection** en **Firebase**, en caso de que el stock de la **db** sea mayor al agregado en el carrito, prosigue con el proceso de generación de la orden y caso contrario muestra un **toast** con un mensaje alertando al usuario el o los artículos que poseen un stock menor al solicitado. 
 

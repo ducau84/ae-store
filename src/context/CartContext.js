@@ -4,58 +4,55 @@ import useLocalStorage from "../hooks/useLocalStorage";
 export const CartContext = createContext( [] );
 
 const CartProvider = ( { children } ) => {
-
-	const [ cart, setCart ] = useLocalStorage("cart", [] );
+	const [ cart, setCart ] = useLocalStorage( "cart", [] );
 
 	const isInCart = ( id ) => cart.some( ( producto ) => producto.id === id );
 
 	const addItem = ( product, qty ) => {
-
 		if ( isInCart( product.id ) ) {
-
 			const newCart = [ ...cart ];
 
 			newCart.map( ( item ) => {
 				return item.id === product.id
-					? { ...item, qty: item.qty += qty }
+					? { ...item, qty: ( item.qty += qty ) }
 					: product;
 			} );
 
 			setCart( newCart );
-
 		} else {
-
 			setCart( [ ...cart, { ...product, qty } ] );
-
 		}
 	};
 
 	const clearCart = () => setCart( [] );
 
-	const removeItem = ( id ) => setCart( cart.filter( ( product ) => product.id !== id ) );
+	const removeItem = ( id ) =>
+		setCart( cart.filter( ( product ) => product.id !== id ) );
 
-	const totalItems = () => cart.reduce( ( quantity, product ) => quantity + product.qty, 0 );
+	const totalItems = () =>
+		cart.reduce( ( quantity, product ) => quantity + product.qty, 0 );
 
 	const operPrice = () => {
-		return cart.reduce( ( total, product ) => total + product.qty * product.price, 0 );
+		return cart.reduce(
+			( total, product ) => total + product.qty * product.price,
+			0
+		);
 	};
 
 	return (
-
-		<CartContext.Provider value={
-			{
+		<CartContext.Provider
+			value={{
 				cart,
 				addItem,
 				removeItem,
 				clearCart,
 				isInCart,
 				totalItems,
-				operPrice
-			}
-		}>
+				operPrice,
+			}}
+		>
 			{children}
 		</CartContext.Provider>
-
 	);
 };
 

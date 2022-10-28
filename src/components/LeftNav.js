@@ -12,15 +12,17 @@ const LeftNav = ( { open, setOpen, categories } ) => {
 			{categories.map( ( category, index ) => {
 				return (
 					<li key={`${category.name}-${index}`}>
-						<NavLink to={category.route} onClick={()=>setOpen(false)}>{category.name}</NavLink>
+						<NavLink to={category.route} onClick={() => setOpen( false )}>
+							{category.name}
+						</NavLink>
 					</li>
 				);
 			} )}
 			<li>|</li>
 			<br />
 			<li>
-				<NavLink to="order_status" onClick={()=>setOpen(false)}>
-					Mis Órdenes <SearchTwoToneIcon fontSize="xsmall"/> 
+				<NavLink to="order_status" onClick={() => setOpen( false )}>
+					Mis Órdenes <SearchTwoToneIcon fontSize="xsmall" />
 				</NavLink>
 			</li>
 			<li>|</li>

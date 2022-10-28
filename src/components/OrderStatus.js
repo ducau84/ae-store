@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import { CheckOutContainer } from "../styled/CheckOutContainer";
-import { Button } from "../styled/Button";
+import { Link } from "react-router-dom";
 import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { db } from "../firebase/firebase.js";
 import { toast } from "react-toastify";
-import OrderDet from "./OrderDet";
-import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
-import ArrowBackTwoToneIcon from "@mui/icons-material/ArrowBackTwoTone";
 import { FallingLines } from "react-loader-spinner";
-import { Link } from "react-router-dom";
-import { ArrowBackTwoTone } from "@mui/icons-material";
+import { ArrowBackTwoTone, SearchTwoTone } from "@mui/icons-material";
+import { Button } from "../styled/Button";
+import { CheckOutContainer } from "../styled/CheckOutContainer";
 import { OrdersDet } from "../styled/Orders";
+import OrderDet from "./OrderDet";
 
 const OrderStatus = () => {
 
@@ -61,10 +59,10 @@ const OrderStatus = () => {
 				};
 			} );
 			data.length === 0
-				? toast.warning(
-					"No se encontró ninguna orden realizada desde esta dirección de e-mail", { theme: "colored" }
-				)
-				: setOrderDetail( data ); console.log( data )
+				?
+				toast.warning( "No se encontró ninguna orden realizada desde esta dirección de e-mail", { theme: "dark" } )
+				:
+				setOrderDetail( data );
 		}
 		catch ( err ) {
 			console.error( err );
@@ -87,7 +85,7 @@ const OrderStatus = () => {
 				</div>
 			</CheckOutContainer>
 		);
-	}
+	};
 
 	return (
 
@@ -111,13 +109,13 @@ const OrderStatus = () => {
 										required
 									/>
 									<Button color="confirm" type="submit">
-										<SearchTwoToneIcon fontSize="small" /> Buscar
+										<SearchTwoTone fontSize="small" /> Buscar
 									</Button>
 								</div>
 							</form>
 							<Link to="/">
 								<Button color="normal">
-									<ArrowBackTwoToneIcon />Volver al Listado
+									<ArrowBackTwoTone />Volver al Listado
 								</Button>
 							</Link>
 						</>
@@ -126,7 +124,7 @@ const OrderStatus = () => {
 							<p>A continuación se enumeran las distintas órdenes realizadas desde	el e-mail ingresado:</p>
 							<div>
 								<Button color="confirm" onClick={() => reloadOrdersPage()}>
-									<SearchTwoToneIcon />
+									<SearchTwoTone />
 									Otra Consulta
 								</Button>
 								<Link to="/">

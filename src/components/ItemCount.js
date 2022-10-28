@@ -27,13 +27,16 @@ const ItemCount = ( { initial, stock, onAdd } ) => {
 			</StockContainer>
 			<Counter>
 				<span>Cantidad:</span>
-				<ButtonCounter disabled={contador <= 1} onClick={restar}> - </ButtonCounter>
+				<ButtonCounter disabled={contador <= 1} onClick={restar}>
+					-
+				</ButtonCounter>
 				<span>{contador}</span>
-				<ButtonCounter disabled={contador >= stock} onClick={sumar}> + </ButtonCounter>
+				<ButtonCounter disabled={contador >= stock} onClick={sumar}>
+					+
+				</ButtonCounter>
 			</Counter>
 			<Button color="normal" onClick={() => stock <= 0 ? toast.error( `¡No hay más unidades disponibles!` ) : onAdd( contador )}>
-				<AddShoppingCartTwoToneIcon sx={{ fontSize: 25 }} />
-				AGREGAR AL CARRITO
+				<AddShoppingCartTwoToneIcon sx={{ fontSize: 25 }} />AGREGAR AL CARRITO
 			</Button>
 		</ShopContainer>
 	);

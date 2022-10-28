@@ -54,7 +54,7 @@ export const CheckOutContainer = styled.section`
     text-shadow: 1px 1px 1px #ffff;
     text-transform: none;
   }
-  
+
   form {
     margin-top: 2rem;
     display: flex;
@@ -98,4 +98,4 @@ export const CheckOutContainer = styled.section`
       }
     }
   }
-`;
+`

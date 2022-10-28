@@ -10,7 +10,7 @@ const CartItems = ( { item } ) => {
 	const { removeItem } = useContext( CartContext );
 
 	return (
-		
+
 		<CartItemContainer>
 			<img src={item.img} alt="cover" />
 			<article>
@@ -20,7 +20,9 @@ const CartItems = ( { item } ) => {
 				<p>Precio: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( item.price )}</p>
 				<p>Subtotal: {new Intl.NumberFormat( "es-AR", { style: "currency", currency: "ARS" } ).format( item.qty * item.price )}</p>
 			</article>
-			<Button color="delete" onClick={() => removeItem( item.id )}><RemoveShoppingCartTwoToneIcon fontSize="small" />Eliminar</Button>
+			<Button color="delete" onClick={() => removeItem( item.id )}>
+				<RemoveShoppingCartTwoToneIcon fontSize="small" />Eliminar
+			</Button>
 		</CartItemContainer>
 	);
 };
